@@ -14,7 +14,7 @@
     align-items: center;
     justify-content: space-between;
     color: rgb(174, 174, 174);
-    padding: 25px 0px;
+    padding: 25px 5px;
     font-size: .6rem;
 }
 .masai-copyrights>p>a{
