@@ -1,4 +1,5 @@
 <script>
+  import Footer from "./Footer/Footer.svelte";
 import Navbar from "./Navbar.svelte";
 
 </script>
@@ -12,6 +13,9 @@ import Navbar from "./Navbar.svelte";
     <Navbar/>
 	
 </section>
+<footer>
+	<Footer/>
+</footer>
 
 <style>
     
