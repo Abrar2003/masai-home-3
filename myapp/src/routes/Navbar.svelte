@@ -1,5 +1,13 @@
 <script>
   let isSignup = true;
+  let name = ""
+  let email = ""
+  let phone = ""
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    console.log({ name, email, phone})
+  }
 
   function toggleForm(event) {
     event.preventDefault();
@@ -122,6 +130,7 @@
                     class="form-control"
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
+                    bind:value={name}
                   />
                   <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                 </div>
@@ -134,6 +143,7 @@
                     class="form-control"
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
+                    bind:value={email}
                   />
                   <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                 </div>
@@ -142,12 +152,13 @@
                     >Phone Number<p class="requiredred">*</p></label
                   >
                   <input
-                    type="password"
+                    type="number"
                     class="form-control"
                     id="exampleInputPassword1"
+                    bind:value={phone}
                   />
                 </div>
-                <button type="submit" class="btn btn-primary btn-submit"
+                <button type="submit" on:click={handleSubmit} class="btn btn-primary btn-submit"
                   >Submit</button
                 >
               </form>
@@ -166,7 +177,7 @@
                     required
                   />
                 </div>
-                <button type="submit" class="btn btn-primary btn-submit"
+                <button  type="submit" class="btn btn-primary btn-submit"
                   >Continue</button
                 >
               </form>
