@@ -5,7 +5,7 @@
 <div class="masai-copyrights">
   <p>© 2023 by Masai School</p>
 
-  <p><a href="">Privacy Policy </a> & <a href="">Terms and Conditions</a> </p>
+  <p><a href="#">Privacy Policy </a> & <a href="#">Terms and Conditions</a> </p>
 </div>
 
 <style>

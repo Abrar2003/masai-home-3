@@ -1,5 +1,8 @@
 <script>
+  import CareerPossibilities from "./CareerPossibilities/CareerPossibilities.svelte";
+  import CertificateNsdc from "./CertificateByNSDC/CertificateNSDC.svelte";
   import Footer from "./Footer/Footer.svelte";
+  import MasaiNews from "./MasaiNews/MasaiNews.svelte";
 import Navbar from "./Navbar.svelte";
 
 </script>
@@ -11,7 +14,10 @@ import Navbar from "./Navbar.svelte";
 
 <section>
     <Navbar/>
-	
+	<CareerPossibilities/>
+	<CertificateNsdc/>
+	<MasaiNews/>
+
 </section>
 <footer>
 	<Footer/>
