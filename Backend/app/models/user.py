@@ -5,3 +5,5 @@ class User(db.Model):
     full_name = db.Column(db.String(255), nullable=False)
     email = db.Column(db.String(255), unique=True, nullable=False)
     phone = db.Column(db.String(255), unique=True, nullable=False)
+    #otp = db.Column(db.String(255), unique=True, nullable=False)
+

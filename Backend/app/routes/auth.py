@@ -13,14 +13,14 @@ def register():
     data = request.get_json()
     full_name = data.get('full_name')
     email = data.get('email')
-    password = data.get('password')
+    phone = data.get('phone')
 
     existing_user = User.query.filter_by(email=email).first()
 
     if existing_user:
         return jsonify({'message': 'Email already exists'}), 400
 
-    new_user = User(full_name=full_name, email=email, password=password)
+    new_user = User(full_name=full_name, email=email, phone=phone)
     
     db.session.add(new_user)
     db.session.commit()
@@ -32,6 +32,9 @@ def login():
     data = request.get_json()
     email = data.get('email')
     password = data.get('password')
+    
+    #Generate OTP
+    #USER UPDATE OTP
 
     user = User.query.filter_by(email=email).first()
 
