@@ -7,6 +7,7 @@ import Banner from "./Banner.svelte";
   import Footer from "./Footer/Footer.svelte";
   import MasaiNews from "./MasaiNews/MasaiNews.svelte";
 import Navbar from "./Navbar.svelte";
+  import StudentImpact from "./StudentImpact/StudentImpact.svelte";
   import ScrollerSlide from "./ScrollerSlide.svelte";
   import Sidebar from "./Sidebar.svelte";
 
@@ -19,7 +20,7 @@ import Navbar from "./Navbar.svelte";
 
 <section>
     <Navbar/>
-
+	<StudentImpact/>
 	<Banner/>
 	<Alumini/>
 	<Sidebar/>

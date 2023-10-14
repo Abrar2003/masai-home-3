@@ -5,8 +5,7 @@
 <div>
   <div class="msguru-masai-careed-possibilities-main">
     <div class="msguru-masai-careed-possibilities-left">
-    
-        <h3>
+      <h3>
         <span
           >Elevate
           <img
@@ -98,6 +97,17 @@
   .msguru-masai-careed-possibilities-right > img {
     width: 100%;
   }
-
-
+  @media screen and (max-width: 850px) {
+    .msguru-masai-careed-possibilities-main {
+      grid-template-columns: repeat(1, 1fr);
+    }
+    .msguru-masai-careed-possibilities-left {
+      text-align: center;
+      margin-bottom: 1rem;
+      gap: 8px;
+    }
+    .msguru-masai-careed-possibilities-left-top-matter{
+      line-height:1.7rem ;
+    }
+  }
 </style>
