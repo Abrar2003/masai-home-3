@@ -2,6 +2,7 @@
   import Alumini from "./Alumini.svelte";
 import Banner from "./Banner.svelte";
 import Navbar from "./Navbar.svelte";
+  import Sidebar from "./Sidebar.svelte";
 
 </script>
 
@@ -14,6 +15,7 @@ import Navbar from "./Navbar.svelte";
     <Navbar/>
 	<Banner/>
 	<Alumini/>
+	<Sidebar/>
 	
 </section>
 
