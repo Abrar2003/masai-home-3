@@ -30,3 +30,23 @@ def register():
 
         return jsonify({'message': 'User registered successfully', 'otp': otp})
 
+
+@auth_bp.route('/login', methods=['POST'])
+def login():
+    data = request.get_json()
+    key = data.get('key')
+
+    # Validate if the input is an email or phone
+    if is_email(key):
+        user = User.query.filter_by(email=key).first()
+    else:
+        user = User.query.filter_by(phone=key).first()
+
+    if user:
+        # Generate a random 6-digit OTP
+        otp = ''.join(random.choices(string.digits, k=6))
+        user.otp = otp
+        db.session.commit()
+        return jsonify({'message': 'Please verify the OTP', 'otp': otp})
+    else:
+        return jsonify({'message': 'Please register. The email or phone number does not exist'}), 404
