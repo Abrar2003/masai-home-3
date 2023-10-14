@@ -4,6 +4,7 @@
   import Footer from "./Footer/Footer.svelte";
   import MasaiNews from "./MasaiNews/MasaiNews.svelte";
 import Navbar from "./Navbar.svelte";
+  import StudentImpact from "./StudentImpact/StudentImpact.svelte";
 
 </script>
 
@@ -14,6 +15,7 @@ import Navbar from "./Navbar.svelte";
 
 <section>
     <Navbar/>
+	<StudentImpact/>
 	<CareerPossibilities/>
 	<CertificateNsdc/>
 	<MasaiNews/>
