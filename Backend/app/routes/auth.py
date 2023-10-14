@@ -1,15 +1,12 @@
 from flask import Blueprint, request, jsonify, session
 from app.models.user import User
 from app.extensions import db
-import re
-import string
-import random
-
 
 auth_bp = Blueprint('auth', __name__)
 
-def is_email(input):
-    return re.match(r"[^@]+@[^@]+\.[^@]+", input) is not None
+@auth_bp.route('/', methods=['GET'])
+def hello():
+    return "Hello, World!"
 
 @auth_bp.route('/register', methods=['POST'])
 def register():
@@ -18,16 +15,33 @@ def register():
     email = data.get('email')
     phone = data.get('phone')
 
-    existing_user = User.query.filter((User.email == email) | (User.phone == phone)).first()
+    existing_user = User.query.filter_by(email=email).first()
 
     if existing_user:
-        return jsonify({'message': 'Email or phone number already exists'}), 400
+        return jsonify({'message': 'Email already exists'}), 400
+
+    new_user = User(full_name=full_name, email=email, phone=phone)
+    
+    db.session.add(new_user)
+    db.session.commit()
+
+    return jsonify({'message': 'User registered successfully!'})
+
+@auth_bp.route('/login', methods=['POST'])
+def login():
+    data = request.get_json()
+    email = data.get('email')
+    password = data.get('password')
+
+    user = User.query.filter_by(email=email).first()
+
+    if user and user.password == password:
+        session['logged_in'] = True
+        return jsonify({'message': 'Login successful!'})
     else:
-        otp = ''.join(random.choices(string.digits, k=6))
-        new_user = User(full_name=full_name, email=email, phone=phone, otp=otp)
-        db.session.add(new_user)
-        db.session.commit()
+        return jsonify({'message': 'Login failed'}, 401)
 
-        return jsonify({'message': 'User registered successfully', 'otp': otp})
-
-
+@auth_bp.route('/logout')
+def logout():
+    session.pop('logged_in', None)
+    return jsonify({'message': 'Logged out'})
