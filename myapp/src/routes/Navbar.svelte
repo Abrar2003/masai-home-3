@@ -1,20 +1,15 @@
 <script>
   let isSignup = true;
-  let name = ""
-  let email = ""
-  let phone = ""
-
-  function handleSubmit(event) {
-    event.preventDefault();
-    console.log({ name, email, phone})
-  }
 
   function toggleForm(event) {
     event.preventDefault();
     isSignup = !isSignup;
   }
 </script>
-
+<div class="nav-head">
+    <p class="head-p">Applications for our 6th November Batches are now open! </p>
+    <button class="applynow-btn">APPLY NOW</button>
+</div>
 <nav class="navbar navbar-expand-lg navbar-light ">
   <a class="navbar-brand" href="/">
     <img
@@ -59,12 +54,12 @@
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit"
+      <button class="btn btn-outline-success my-2 my-sm-0 refer-btn" type="submit"
         >REFER & EARN</button
       >
       <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">SIGN UP</button> -->
       <button
-        class="btn btn-primary"
+        class="btn btn-primary signup-btn"
         type="button"
         data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasRight"
@@ -130,7 +125,6 @@
                     class="form-control"
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
-                    bind:value={name}
                   />
                   <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                 </div>
@@ -143,7 +137,6 @@
                     class="form-control"
                     id="exampleInputEmail1"
                     aria-describedby="emailHelp"
-                    bind:value={email}
                   />
                   <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                 </div>
@@ -152,13 +145,12 @@
                     >Phone Number<p class="requiredred">*</p></label
                   >
                   <input
-                    type="number"
+                    type="password"
                     class="form-control"
                     id="exampleInputPassword1"
-                    bind:value={phone}
                   />
                 </div>
-                <button type="submit" on:click={handleSubmit} class="btn btn-primary btn-submit"
+                <button type="submit" class="btn btn-primary btn-submit"
                   >Submit</button
                 >
               </form>
@@ -177,7 +169,7 @@
                     required
                   />
                 </div>
-                <button  type="submit" class="btn btn-primary btn-submit"
+                <button type="submit" class="btn btn-primary btn-submit"
                   >Continue</button
                 >
               </form>
@@ -190,7 +182,39 @@
 </nav>
 
 <style>
-    
+    @media (max-width: 768px) {
+    .nav-head{
+        display: flex;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+    .applynow-btn{
+        margin-top: -40px;
+        margin-bottom: 10px;
+    }
+}
+    .nav-head{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+        background-color: #FEDFE5;
+    }
+    .applynow-btn {
+    background-color: #ed0331;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+    .head-p{
+        font-size: 17px;
+        font-weight: bold;
+        margin-top: 15px;
+    }
   .nav-item{
         display: flex;
         margin: 10px;
@@ -252,5 +276,24 @@
   .btn-submit {
     width: 90%;
     height: 45px;
+  }
+  .signup-btn{
+    color: #ed0331;
+    border: 1px solid #ed0331;
+    background-color: white;
+    font-weight: 500;
+    padding: 8px 16px;
+    height: 50px;
+    border-radius: 8px;
+    margin-left: 15px;
+    margin-right: 30px;
+  }
+  .refer-btn{
+    border: none;
+    background-color: #e5feff;
+    color: rgba(5, 15, 32, 0.5);
+    font-weight: 550;
+    height: 45px;
+    border-radius: 8px;
   }
 </style>
