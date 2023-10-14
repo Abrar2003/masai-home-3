@@ -26,7 +26,7 @@ import Navbar from "./Navbar.svelte";
 <style>
     
 	section {
-		border: 1px solid black;
+		/* border: 1px solid black; */
 		width: 100%;
 		/* display: flex; */
 		/* flex-direction: column; */
