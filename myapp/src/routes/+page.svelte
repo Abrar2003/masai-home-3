@@ -3,6 +3,7 @@
 import Banner from "./Banner.svelte";
   import Courses from "./Courses.svelte";
 import Navbar from "./Navbar.svelte";
+  import ScrollerSlide from "./ScrollerSlide.svelte";
   import Sidebar from "./Sidebar.svelte";
 
 </script>
@@ -18,6 +19,7 @@ import Navbar from "./Navbar.svelte";
 	<Alumini/>
 	<Sidebar/>
 	<Courses/>
+	<ScrollerSlide/>
 	
 </section>
 
