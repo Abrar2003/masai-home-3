@@ -197,8 +197,6 @@
         <button
         class="btn btn-primary signup-btn  signed-user-name-msguru-masai"
         type="button"
-        data-bs-toggle="offcanvas"
-        data-bs-target="#offcanvasRight"
         aria-controls="offcanvasRight">{signedUser}</button
       >
         <!-- <p class="signed-user-name-msguru-masai">{signedUser}</p> -->

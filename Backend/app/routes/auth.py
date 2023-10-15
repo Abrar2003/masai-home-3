@@ -36,23 +36,23 @@ def register():
 
         # Validation: Check if required fields are provided.
         if not full_name or not (email or phone):
-            print("error in validation 1")
+            # print("error in validation 1")
             return jsonify({'message': 'full name, email and phone are required'}), 400
 
         # Validation: Check email format (optional).
         if email and not is_email(email):
-            print("error in validation 2")
+            # print("error in validation 2")
             return jsonify({'message': 'Invalid email format'}), 400
 
         # Validation: Check phone format (optional).
         if phone and not is_phone(phone):
-            print("error in validation 3")
+            # print("error in validation 3")
             return jsonify({'message': 'Invalid phone number format'}), 400
 
         existing_user = User.query.filter((User.email == email) | (User.phone == phone)).first()
 
         if existing_user:
-            print("error in validation 4")
+            # print("error in validation 4")
             return jsonify({'message': 'Email or phone number already exists'}), 400
         else:
             otp = ''.join(random.choices(string.digits, k=6))
