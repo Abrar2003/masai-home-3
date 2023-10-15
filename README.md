@@ -44,12 +44,12 @@ Before you begin, ensure you have the following software and tools installed:
 cd frontend
 npm install
 
-**Install backend dependencies:**
+**Install Backend Dependencies:**
 
-bash
-Copy code
+```bash
 cd backend
 pip install -r requirements.txt
+
 💻 Usage
 To run the application locally, follow these steps:
 
