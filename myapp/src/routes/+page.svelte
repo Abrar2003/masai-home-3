@@ -14,6 +14,7 @@
   import StudentImpact from "./StudentImpact/StudentImpact.svelte";
   import ScrollerSlide from "./ScrollerSlide.svelte";
   import Sidebar from "./Sidebar.svelte";
+  import MasaiTechCommunity from "./MasaiTechCommunity/MasaiTechCommunity.svelte";
 </script>
 
 <svelte:head>
@@ -32,9 +33,8 @@
   <Courses />
   <Alumini />
   <ScrollerSlide />
-
-
-  I have One Component to Place here
+<!-- --------------------------- -->
+  <MasaiTechCommunity/>
   <BrandCarousel/>
   <StudentImpact />
   <CareerPossibilities />
