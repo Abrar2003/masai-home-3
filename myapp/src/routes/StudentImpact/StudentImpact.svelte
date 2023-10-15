@@ -3,15 +3,45 @@
   import StudentImpactRight from "./StudentImpactRight.svelte";
 </script>
 
-<div class="msguru-masai-carousel-main">
-  <div class="mainWind"><StudentImpactLeft /></div>
-  <div class="mainWind"><StudentImpactRight /></div>
+<div>
+  <div class="msguru-creating-impact-masai">
+    <h2>
+      Our Students Are <span
+        >Creating Impact <img
+          src="https://masaischool.com/images/new-homepage/yellow-vector.svg"
+          alt=""
+        />
+      </span>
+    </h2>
+  </div>
+  <div class="msguru-masai-carousel-main">
+    <div class="mainWind"><StudentImpactLeft /></div>
+    <div class="mainWind"><StudentImpactRight /></div>
+  </div>
 </div>
 
 <!-- <LefrSideSlider />
 <RightSideSlider /> -->
 
 <style>
+   .msguru-creating-impact-masai{
+    padding: 2rem 0rem;
+   }
+  .msguru-creating-impact-masai > h2 {
+    text-align: center;
+    font-size: 1.9rem;
+    font-weight: 700;
+  }
+  .msguru-creating-impact-masai > h2 > span {
+    color: red;
+    position: relative;
+  }
+  .msguru-creating-impact-masai > h2 > span > img {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 230px;
+  }
   .msguru-masai-carousel-main {
     display: flex;
     align-items: center;
@@ -35,6 +65,30 @@
     }
     .mainWind {
       width: 100%;
+    }
+    .msguru-creating-impact-masai {
+      font-size: 1.5rem;
+    }
+
+    .msguru-creating-impact-masai > h2 > span > img {
+      /* position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 230px; */
+    }
+  }
+
+  @media screen and (max-width: 500px) {
+    .msguru-creating-impact-masai > h2 {
+      font-size: 1.4rem;
+    }
+    .msguru-creating-impact-masai > h2 > span > img{
+      width: 170px;
+    }
+  }
+  @media screen and (max-width: 360px){
+    .msguru-creating-impact-masai > h2 > span > img{
+      display: none;
     }
   }
 </style>
