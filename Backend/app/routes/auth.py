@@ -36,23 +36,19 @@ def register():
 
         # Validation: Check if required fields are provided.
         if not full_name or not (email or phone):
-            # print("error in validation 1")
             return jsonify({'message': 'full name, email and phone are required'}), 400
 
         # Validation: Check email format (optional).
         if email and not is_email(email):
-            # print("error in validation 2")
             return jsonify({'message': 'Invalid email format'}), 400
 
         # Validation: Check phone format (optional).
         if phone and not is_phone(phone):
-            # print("error in validation 3")
             return jsonify({'message': 'Invalid phone number format'}), 400
 
         existing_user = User.query.filter((User.email == email) | (User.phone == phone)).first()
 
         if existing_user:
-            # print("error in validation 4")
             return jsonify({'message': 'Email or phone number already exists'}), 400
         else:
             otp = ''.join(random.choices(string.digits, k=6))
@@ -106,7 +102,7 @@ def verify():
         if user_otp == existing_user.otp:
            # Generate a token
             token = jwt.encode({'email': existing_user.email}, 'your-secret-key', algorithm='HS256')
-
+            response.set_cookie('user_name', existing_user.full_name, path='/')  # Set the session cookie
             # Create a response with the token and set the session cookie
             response = make_response(jsonify({'message': 'OTP verification successful', 'name': existing_user.full_name, 'email': existing_user.email}))
             response.set_cookie('login_token', token, path='/')  # Set the session cookie

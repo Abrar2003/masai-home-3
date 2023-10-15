@@ -1,5 +1,6 @@
 <script>
   import axios from "axios";
+  import { onMount } from "svelte";
   let isSignup = true;
   let isSignin = true;
 
@@ -75,11 +76,14 @@
     }
     emailOrMobile = email;
     try {
-      let res = await axios.post("http://localhost:5000/auth/register", {
-        full_name: fullname,
-        email: email,
-        phone: mobileNumber,
-      });
+      let res = await axios.post(
+        "http://aalam003.pythonanywhere.com/auth/register",
+        {
+          full_name: fullname,
+          email: email,
+          phone: mobileNumber,
+        }
+      );
       alert(`Your OTP is ${res.data.otp}`);
     } catch (error) {
       alert(`please login ${error.response.data.message}`);
@@ -96,9 +100,12 @@
       showError = true;
     }
     try {
-      let res = await axios.post("http://localhost:5000/auth/login", {
-        key: emailOrMobile,
-      });
+      let res = await axios.post(
+        "http://aalam003.pythonanywhere.com/auth/login",
+        {
+          key: emailOrMobile,
+        }
+      );
       alert(`Your OTP is ${res.data.otp}`);
     } catch (error) {
       alert(error.response.data.message);
@@ -109,7 +116,7 @@
     // window.location.href = '/';
     try {
       let res = await axios.post(
-        "http://localhost:5000/auth/verify",
+        "http://aalam003.pythonanywhere.com/auth/verify",
         {
           key: email || emailOrMobile,
           otp: otp,
@@ -119,11 +126,20 @@
         }
       );
       signedUser = res.data.name;
+      localStorage.setItem("token", JSON.stringify(res.data));
       alert(`${res.data.message} ${res.data.name}`);
     } catch (error) {
       alert(error.response.data.message);
     }
   }
+  function getName() {
+    const token = JSON.parse(localStorage.getItem("token"))
+    return token.name
+  }
+
+  onMount(() => {
+    signedUser = getName();
+  });
 </script>
 
 <div class="tp">
@@ -183,23 +199,23 @@
         >
         <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">SIGN UP</button> -->
         {#if !signedUser}
-        <button
-          class="btn btn-primary signup-btn "
-          type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#offcanvasRight"
-          aria-controls="offcanvasRight" style="text-transform: uppercase;" >sign up</button
-        >
-        <!--  -->
-        <!-- <p class="signed-user-name-msguru-masai">Guru Prasad</p> -->
+          <button
+            class="btn btn-primary signup-btn"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#offcanvasRight"
+            aria-controls="offcanvasRight"
+            style="text-transform: uppercase;">sign up</button
+          >
+          <!--  -->
+          <!-- <p class="signed-user-name-msguru-masai">Guru Prasad</p> -->
         {:else}
-
-        <button
-        class="btn btn-primary signup-btn  signed-user-name-msguru-masai"
-        type="button"
-        aria-controls="offcanvasRight">{signedUser}</button
-      >
-        <!-- <p class="signed-user-name-msguru-masai">{signedUser}</p> -->
+          <button
+            class="btn btn-primary signup-btn signed-user-name-msguru-masai"
+            type="button"
+            aria-controls="offcanvasRight">{signedUser}</button
+          >
+          <!-- <p class="signed-user-name-msguru-masai">{signedUser}</p> -->
         {/if}
         <div
           class="offcanvas offcanvas-end"
@@ -375,7 +391,7 @@
 <div class="filler" />
 
 <style>
-  .form-inline{
+  .form-inline {
     display: flex;
     align-items: center;
   }
@@ -470,13 +486,12 @@
       "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
       "Segoe UI Symbol", "Noto Color Emoji";
   }
-.signed-user-name-msguru-masai{
-  border: none !important;
-  color: black !important;
-  font-weight: 500 !important;
-  font-size: 1.2rem;
-
-}
+  .signed-user-name-msguru-masai {
+    border: none !important;
+    color: black !important;
+    font-weight: 500 !important;
+    font-size: 1.2rem;
+  }
 
   .offcanvas-head1 {
     text-align: center;
