@@ -28,9 +28,9 @@
   <Navbar />
  
   <Banner />
+  <Alumini />
   <Sidebar />
   <Courses />
-  <Alumini />
   <ScrollerSlide />
 
 
