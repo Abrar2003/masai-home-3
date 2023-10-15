@@ -1,7 +1,11 @@
 <script>
+
+  import BrandCarousel from "./BrandCarousel/BrandCarousel.svelte";
+
   import Alumini from "./Alumini.svelte";
   import Banner from "./Banner.svelte";
   import Courses from "./Courses.svelte";
+
   import CareerPossibilities from "./CareerPossibilities/CareerPossibilities.svelte";
   import CertificateNsdc from "./CertificateByNSDC/CertificateNSDC.svelte";
   import Footer from "./Footer/Footer.svelte";
@@ -18,16 +22,24 @@
 </svelte:head>
 
 <section>
+
+
+
   <Navbar />
-  <StudentImpact />
+ 
   <Banner />
-  <Alumini />
   <Sidebar />
   <Courses />
+  <Alumini />
   <ScrollerSlide />
+
+
+  I have One Component to Place here
+  <BrandCarousel/>
+  <StudentImpact />
   <CareerPossibilities />
   <CertificateNsdc />
-  <MasaiNews />
+  <MasaiNews/>
 </section>
 <footer>
   <Footer />
