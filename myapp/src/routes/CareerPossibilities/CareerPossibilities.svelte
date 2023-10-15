@@ -1,5 +1,7 @@
 <script>
   import Button from "../Button/Button.svelte";
+  let videoUrl =
+    'https://www.youtube.com/embed/dmavmvfXbGA?si=nwcPwsupjPs1MnC9';
 </script>
 
 <div>
@@ -30,10 +32,19 @@
     </div>
 
     <div class="msguru-masai-careed-possibilities-right">
-      <img
+      <!-- <img
         src="https://masaischool.com/images/new-homepage/nsdc/nsdc-cert.jpg"
         alt=""
-      />
+      /> -->
+      <iframe
+  width="560"
+  height="315"
+  src={videoUrl}
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen
+></iframe>
     </div>
   </div>
 </div>
@@ -94,7 +105,7 @@
     font-size: 24px;
   }
 
-  .msguru-masai-careed-possibilities-right > img {
+  .msguru-masai-careed-possibilities-right > iframe {
     width: 100%;
   }
   @media screen and (max-width: 850px) {
