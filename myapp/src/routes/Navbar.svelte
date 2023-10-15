@@ -190,7 +190,13 @@
 </nav>
 
 <style>
-    
+    *{
+      box-sizing: border-box;
+    }
+    .navbar {
+      position: fixed;
+      top: 0px;
+    }
   .nav-item{
         display: flex;
         margin: 10px;

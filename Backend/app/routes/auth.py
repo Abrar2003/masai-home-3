@@ -1,9 +1,10 @@
-from flask import Blueprint, request, jsonify, session
+from flask import Blueprint, request, jsonify, session, make_response
 from app.models.user import User
 from app.extensions import db
 import re
 import string
 import random
+import jwt
 
 
 auth_bp = Blueprint('auth', __name__)
@@ -64,7 +65,13 @@ def verify():
 
     if existing_user:
         if user_otp == existing_user.otp:
-            return jsonify({'message': 'OTP verification successful', 'name': existing_user.full_name, 'email': existing_user.email})
+            # Generate a token
+            token = jwt.encode({'email': existing_user.email}, 'your-secret-key', algorithm='HS256')
+
+            # Create a response with the token and set the session cookie
+            response = make_response(jsonify({'message': 'OTP verification successful', 'name': existing_user.full_name, 'email': existing_user.email}))
+            response.set_cookie('login_token', token, path='/')  # Set the session cookie
+
         else:
             return jsonify({'message': 'Invalid OTP'}), 400
     else:
