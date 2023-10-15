@@ -1,4 +1,4 @@
-Masai Homepage Clone
+#Masai Homepage Clone
 This project is a clone of the Masai School homepage, created using Svelte for the frontend and Python Flask for the backend. It provides a simple authentication system for users to sign in and log in.
 
 Table of Contents
