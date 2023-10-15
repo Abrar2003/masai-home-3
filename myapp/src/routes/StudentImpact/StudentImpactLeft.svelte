@@ -1,20 +1,31 @@
 <script>
   let activeIndex = 0;
-
+ 
   let carouselData = [
-    {
-      src: "https://cdn.pixabay.com/photo/2014/02/27/16/10/flowers-276014_1280.jpg",
-      alt: "First slide",
-    },
-    {
-      src: "https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg?cs=srgb&dl=pexels-pixabay-268533.jpg&fm=jpg",
-      alt: "Second slide",
-    },
-    {
-      src: "https://media.istockphoto.com/id/517188688/photo/mountain-landscape.jpg?s=612x612&w=0&k=20&c=A63koPKaCyIwQWOTFBRWXj_PwCrR4cEoOw2S9Q7yVl8=",
-      alt: "Third slide",
-    },
+
+
+  { src: "https://www.youtube.com/embed/tSlit0vgB20?si=5XATQhBoPPMXeXks" },
+    { src: "https://www.youtube.com/embed/n0xIOjbNN0A?si=AXVqbtGyIsPFWFom" },
+    { src: "https://www.youtube.com/embed/WjklvHqRVbs?si=Pr4hxVrW2aGERIiv" },
+    // {
+    //   src: "https://cdn.pixabay.com/photo/2014/02/27/16/10/flowers-276014_1280.jpg",
+    //   alt: "First slide",
+    // },
+    // {
+    //   src: "https://images.pexels.com/photos/268533/pexels-photo-268533.jpeg?cs=srgb&dl=pexels-pixabay-268533.jpg&fm=jpg",
+    //   alt: "Second slide",
+    // },
+    // {
+    //   src: "https://media.istockphoto.com/id/517188688/photo/mountain-landscape.jpg?s=612x612&w=0&k=20&c=A63koPKaCyIwQWOTFBRWXj_PwCrR4cEoOw2S9Q7yVl8=",
+    //   alt: "Third slide",
+    // },
   ];
+
+  // let videoUrl = [
+  //   { src: "https://www.youtube.com/embed/UAFYMSIcBf8?si=F4WuLXEsxBVGu3zg" },
+  //   { src: "https://www.youtube.com/embed/UAFYMSIcBf8?si=F4WuLXEsxBVGu3zg" },
+  //   { src: "https://www.youtube.com/embed/UAFYMSIcBf8?si=F4WuLXEsxBVGu3zg" },
+  // ];
 
   function prevSlide() {
     activeIndex = (activeIndex - 1 + carouselData.length) % carouselData.length;
@@ -30,7 +41,23 @@
     <div class="carousel-inner">
       {#each carouselData as item, i (item.src)}
         <div class="carousel-item {i === activeIndex ? 'active' : ''}">
-          <img class="d-block w-100" src={item.src} alt={item.alt} />
+
+
+
+          <!-- <img class="d-block w-100" src={item.src} alt={item.alt} /> -->
+ <iframe class="d-block w-100"
+  width="560"
+  height="315"
+  src={item.src}
+  title="YouTube video player"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+  allowfullscreen
+></iframe>
+
+
+
+
         </div>
       {/each}
     </div>
@@ -62,7 +89,7 @@
 </div>
 
 <style>
-  .d-block{
+  .d-block {
     border-radius: 10px;
   }
   .msguru-masai-left-carousel {
