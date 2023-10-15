@@ -184,14 +184,24 @@
         <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">SIGN UP</button> -->
         {#if !signedUser}
         <button
-          class="btn btn-primary signup-btn"
+          class="btn btn-primary signup-btn "
           type="button"
           data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasRight"
-          aria-controls="offcanvasRight">SIGN UP</button
+          aria-controls="offcanvasRight" style="text-transform: uppercase;" >sign up</button
         >
+        <!--  -->
+        <!-- <p class="signed-user-name-msguru-masai">Guru Prasad</p> -->
         {:else}
-        <p>{signedUser}</p>
+
+        <button
+        class="btn btn-primary signup-btn  signed-user-name-msguru-masai"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasRight"
+        aria-controls="offcanvasRight">{signedUser}</button
+      >
+        <!-- <p class="signed-user-name-msguru-masai">{signedUser}</p> -->
         {/if}
         <div
           class="offcanvas offcanvas-end"
@@ -367,6 +377,10 @@
 <div class="filler" />
 
 <style>
+  .form-inline{
+    display: flex;
+    align-items: center;
+  }
   .tp {
     position: fixed;
     top: 0px;
@@ -458,6 +472,14 @@
       "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
       "Segoe UI Symbol", "Noto Color Emoji";
   }
+.signed-user-name-msguru-masai{
+  border: none !important;
+  color: black !important;
+  font-weight: 500 !important;
+  font-size: 1.2rem;
+
+}
+
   .offcanvas-head1 {
     text-align: center;
     width: 300px;
