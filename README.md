@@ -36,12 +36,14 @@ Before you begin, ensure you have the following software and tools installed:
    git clone https://github.com/yourusername/masai-homepage-clone.git
    cd masai-homepage-clone
 
-Install frontend dependencies:
+## Installation
 
-bash
-Copy code
+**Install Frontend Dependencies:**
+
+```bash
 cd frontend
 npm install
+
 Install backend dependencies:
 
 bash
