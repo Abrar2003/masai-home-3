@@ -1,4 +1,5 @@
 <script>
+  import BrandCarousel from "./BrandCarousel/BrandCarousel.svelte";
   import CareerPossibilities from "./CareerPossibilities/CareerPossibilities.svelte";
   import CertificateNsdc from "./CertificateByNSDC/CertificateNSDC.svelte";
   import Footer from "./Footer/Footer.svelte";
@@ -15,6 +16,7 @@ import Navbar from "./Navbar.svelte";
 
 <section>
     <Navbar/>
+	<BrandCarousel/>
 	<StudentImpact/>
 	<CareerPossibilities/>
 	<CertificateNsdc/>
