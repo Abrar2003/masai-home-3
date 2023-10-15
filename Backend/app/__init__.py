@@ -4,11 +4,13 @@ from app.extensions import db
 from app.models.user import User
 from app.routes.auth import auth_bp
 from app.routes.user import user_bp
+from flask_cors import CORS
+
 
 def create_app():
     app = Flask(__name__)
     app.config.from_object(Config)
-
+    CORS(app)
     db.init_app(app)
     
 

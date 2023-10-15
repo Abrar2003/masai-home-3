@@ -1,11 +1,15 @@
 from flask import Flask, request, jsonify, session
 from flask_sqlalchemy import SQLAlchemy
+import re
+import string
 import random
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 app.secret_key = 'your_secret_key'  # Set a secret key for session management.
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://root:1122@localhost/flaskdb'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+mysqlconnector://root:1234@localhost/flaskdb'
 db = SQLAlchemy(app)
 
 # Define the User model with full_name, email, and phone_number
@@ -13,63 +17,75 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     full_name = db.Column(db.String(255), nullable=False)
     email = db.Column(db.String(255), unique=True, nullable=True)
-    phone_number = db.Column(db.String(20), unique=True, nullable=True)
-    verification_code = db.Column(db.String(6), nullable=True)
+    phone = db.Column(db.String(20), unique=True, nullable=True)
+    otp = db.Column(db.String(6), nullable=True)
 
+def is_email(input):
+    return re.match(r"[^@]+@[^@]+\.[^@]+", input) is not None
+
+@app.route("/",methods=["GET"])
+def hello ():
+    return "HELL!!!"
 @app.route('/register', methods=['POST'])
 def register():
     data = request.get_json()
     full_name = data.get('full_name')
     email = data.get('email')
-    phone_number = data.get('phone_number')
+    phone = data.get('phone')
 
-    existing_user = User.query.filter((User.email == email) | (User.phone_number == phone_number)).first()
+    existing_user = User.query.filter((User.email == email) | (User.phone == phone)).first()
 
     if existing_user:
         return jsonify({'message': 'Email or phone number already exists'}), 400
+    else:
+        otp = ''.join(random.choices(string.digits, k=6))
+        new_user = User(full_name=full_name, email=email, phone=phone, otp=otp)
+        db.session.add(new_user)
+        db.session.commit()
 
-    # Generate a 6-digit verification code
-    verification_code = str(random.randint(100000, 999999))
-    
-    new_user = User(full_name=full_name, email=email, phone_number=phone_number, verification_code=verification_code)
-    db.session.add(new_user)
-    db.session.commit()
+        return jsonify({'message': 'User registered successfully', 'otp': otp})
 
-    # Send the verification code via email or SMS to the user
-
-    return jsonify({'message': 'User registered. Please verify your email/phone number.'}), 201
 
 @app.route('/verify', methods=['POST'])
 def verify():
     data = request.get_json()
-    email = data.get('email')
-    phone_number = data.get('phone_number')
-    verification_code = data.get('verification_code')
+    key = data.get('key')
+    user_otp = data.get('otp')
 
-    user = User.query.filter((User.email == email) | (User.phone_number == phone_number)).first()
+    if is_email(key):
+        existing_user = User.query.filter_by(email=key).first()
+    else:
+        existing_user = User.query.filter_by(phone=key).first()
 
-    if user and user.verification_code == verification_code:
-        user.verification_code = None
-        db.session.commit()
-        return jsonify({'message': 'Verification successful!'})
-
-    return jsonify({'message': 'Verification failed'}, 401)
+    if existing_user:
+        if user_otp == existing_user.otp:
+            return jsonify({'message': 'OTP verification successful', 'name': existing_user.full_name, 'email': existing_user.email})
+        else:
+            return jsonify({'message': 'Invalid OTP'}), 400
+    else:
+        return jsonify({'message': 'User not found'}), 404
 
 @app.route('/login', methods=['POST'])
 def login():
     data = request.get_json()
-    email = data.get('email')
-    phone_number = data.get('phone_number')
+    key = data.get('key')
 
-    user = User.query.filter((User.email == email) | (User.phone_number == phone_number)).first()
-
-    if user and user.verification_code is None:
-        # Set a session variable to indicate the user is logged in.
-        session['logged_in'] = True
-        return jsonify({'message': 'Login successful!'})
+    # Validate if the input is an email or phone
+    if is_email(key):
+        user = User.query.filter_by(email=key).first()
     else:
-        return jsonify({'message': 'Login failed'}, 401)
+        user = User.query.filter_by(phone=key).first()
 
+    if user:
+        # Generate a random 6-digit OTP
+        otp = ''.join(random.choices(string.digits, k=6))
+        user.otp = otp
+        db.session.commit()
+        return jsonify({'message': 'Please verify the OTP', 'otp': otp})
+    else:
+        return jsonify({'message': 'Please register. The email or phone number does not exist'}), 404
+
+        
 @app.route('/logout')
 def logout():
     # Clear the session variable to log the user out.

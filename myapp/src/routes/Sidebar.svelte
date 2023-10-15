@@ -43,7 +43,7 @@
   const startAutoChange = () => {
     autoChangeTimeout = setInterval(() => {
       const randomStatus = Math.floor(Math.random() * 5) + 1;
-      setStatus(randomStatus);
+      status = randomStatus;
     }, 5000);
   };
 
