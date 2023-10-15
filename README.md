@@ -44,7 +44,7 @@ Before you begin, ensure you have the following software and tools installed:
 cd frontend
 npm install
 
-Install backend dependencies:
+**Install backend dependencies:**
 
 bash
 Copy code
