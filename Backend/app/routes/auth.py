@@ -11,6 +11,10 @@ auth_bp = Blueprint('auth', __name__)
 def is_email(input):
     return re.match(r"[^@]+@[^@]+\.[^@]+", input) is not None
 
+@auth_bp.route("/", methods=['GET'])
+def hello():
+    return 'Hello, World!'
+
 @auth_bp.route('/register', methods=['POST'])
 def register():
     data = request.get_json()

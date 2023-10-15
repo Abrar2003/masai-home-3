@@ -1,4 +1,5 @@
 <script>
+  import axios from "axios";
   let isSignup = true;
   let isSignin = true;
 
@@ -59,7 +60,7 @@
       }
     }
   
-    function handleSignupSubmit() {
+    async function handleSignupSubmit() {
       
       if (mobileNumber.length === 10 || validateEmail(email)) {
         isSignup = false;
@@ -73,6 +74,13 @@
         showEmailError = true;
         showMobileError = true;
       }
+
+      let res = await axios.post("http://localhost:5000/auth/register", {
+        "full_name" : fullname,
+        "email": email,
+        "phone": mobileNumber 
+      });
+      console.log(res.data);
     }
 
     function handleSigninSubmit() {
@@ -87,23 +95,29 @@
       }
     }
   
-    function handleOtpSubmit() {
-      
-      window.location.href = '/homepage';
+    async function handleOtpSubmit() {
+      // window.location.href = '/';
+      let res = await axios.post("http://localhost:5000/auth/verify", {
+        "key" : email,
+        "otp": otp
+      });
+      console.log(res.data);
     }
 </script>
-<div class="nav-head">
+<div class="tp">
+
+  <div class="nav-head">
     <p class="head-p">Applications for our 6th November Batches are now open! </p>
     <button class="applynow-btn">APPLY NOW</button>
 </div>
 <nav class="navbar navbar-expand-lg navbar-light ">
   <a class="navbar-brand" href="/">
     <img
-      src={"https://masai-website-images.s3.ap-south-1.amazonaws.com/logo.png"}
-      alt="SvelteKit"
+    src={"https://masai-website-images.s3.ap-south-1.amazonaws.com/logo.png"}
+    alt="SvelteKit"
     /></a
-  >
-  <button
+    >
+    <button
     class="navbar-toggler"
     type="button"
     data-toggle="collapse"
@@ -114,16 +128,16 @@
   >
     <span class="navbar-toggler-icon" />
   </button>
-
+  
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <!-- <li class="nav-item active">
           <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
         </li> -->
-      <li class="nav-item">
-        <a class="nav-link" href="/">COURSES</a>
-      </li>
-      <li class="nav-item">
+        <li class="nav-item">
+          <a class="nav-link" href="/">COURSES</a>
+        </li>
+        <li class="nav-item">
         <a class="nav-link" href="/">FEES</a>
       </li>
       <li class="nav-item">
@@ -145,18 +159,18 @@
       >
       <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">SIGN UP</button> -->
       <button
-        class="btn btn-primary signup-btn"
-        type="button"
-        data-bs-toggle="offcanvas"
+      class="btn btn-primary signup-btn"
+      type="button"
+      data-bs-toggle="offcanvas"
         data-bs-target="#offcanvasRight"
         aria-controls="offcanvasRight">SIGN UP</button
       >
-
+      
       <div
-        class="offcanvas offcanvas-end"
-        tabindex="-1"
-        id="offcanvasRight"
-        aria-labelledby="offcanvasRightLabel"
+      class="offcanvas offcanvas-end"
+      tabindex="-1"
+      id="offcanvasRight"
+      aria-labelledby="offcanvasRightLabel"
       >
         <div class="offcanvas-header">
           <div class="offcanvas-header">
@@ -169,28 +183,28 @@
             {:else}
             <!-- <p>Enter OTP</p> -->
             {/if}
-        </div>
           </div>
-
-          <button
-            type="button"
-            class="btn-close text-reset"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close"
-          />
         </div>
+        
+        <button
+        type="button"
+        class="btn-close text-reset"
+        data-bs-dismiss="offcanvas"
+        aria-label="Close"
+        />
+      </div>
         <!-- <div class="offcanvas-head2">
-            <h6>Already have an account? <a href="/">Sign in</a></h6>
+          <h6>Already have an account? <a href="/">Sign in</a></h6>
         </div> -->
         <div class="offcanvas-head2">
           {#if isSignup}
-            <h6>
-              Already have an account? <a href="/" on:click={toggleForm}
-                >Sign in</a
-              >
-            </h6>
+          <h6>
+            Already have an account? <a href="/" on:click={toggleForm}
+            >Sign in</a
+            >
+          </h6>
           {:else if isSignin}
-            <h6>
+          <h6>
               New User? <a href="/" on:click={toggleForm}
                 >Sign up</a
               >
@@ -203,55 +217,55 @@
         <div class="offcanvas-body2">
         </div>
         <div class="offcanvas-body">
-            {#if isSignup}
-              <!-- Signup Form -->
-              <form on:submit|preventDefault={handleSignupSubmit}>
-                <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label"
-                    >Full Name<p class="requiredred">*</p></label
+          {#if isSignup}
+          <!-- Signup Form -->
+          <form on:submit|preventDefault={handleSignupSubmit}>
+            <div class="mb-3">
+              <label for="exampleInputname1" class="form-label"
+              >Full Name<p class="requiredred">*</p></label
                   >
                   <input
-                    type="text"
-                    class="form-control"
-                    id="exampleInputEmail1"
-                    aria-describedby="emailHelp"
+                  type="text"
+                  class="form-control"
+                  id="exampleInputname1"
+                  aria-describedby="emailHelp"
                     bind:value={fullname} on:input={handleFullnameChange} required
-                  />
-                  {#if showFullnameError}
-        <p class="errortag">Please enter a valid name</p>
-      {/if}
-                  <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
-                </div>
+                    />
+                    {#if showFullnameError}
+                    <p class="errortag">Please enter a valid name</p>
+                    {/if}
+                    <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+                  </div>
                 <div class="mb-3">
                   <label for="exampleInputEmail1" class="form-label"
                     >Email address<p class="requiredred">*</p></label
                   >
                   <input
-                    type="email"
-                    class="form-control"
-                    id="exampleInputEmail1"
+                  type="email"
+                  class="form-control"
+                  id="exampleInputEmail1"
                     aria-describedby="emailHelp"
                     bind:value={email} on:input={handleEmailChange} required
                   />
                   {#if showEmailError}
-        <p class="errortag">Please enter a valid email</p>
-      {/if}
+                  <p class="errortag">Please enter a valid email</p>
+                  {/if}
                   <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
                 </div>
                 <div class="mb-3">
                   <label for="exampleInputPassword1" class="form-label"
-                    >Phone Number<p class="requiredred">*</p></label
+                  >Phone Number<p class="requiredred">*</p></label
                   >
                   <input
-                    type=""
-                    class="form-control"
-                    id="exampleInputPassword1"
-                    bind:value={mobileNumber} on:input={handleMobileChange} required
+                  type=""
+                  class="form-control"
+                  id="exampleInputPassword1"
+                  bind:value={mobileNumber} on:input={handleMobileChange} required
                   />
                   {#if showMobileError}
         <p class="errortag">Please enter a valid mobile</p>
       {/if}
-                </div>
+    </div>
                 <button type="submit" class="btn btn-primary btn-submit"
                   >Submit</button
                 >
@@ -262,43 +276,43 @@
                 
                 <div class="mb-3">
                   <label for="exampleInputPassword1" class="form-label"
-                    >Phone number or email address<p class="requiredred">*</p></label
+                  >Phone number or email address<p class="requiredred">*</p></label
                   >
                   <input
-                    type=""
-                    class="form-control"
+                  type=""
+                  class="form-control"
                     id="exampleInputPassword1"
                     bind:value={emailOrMobile} on:input={handleInputChange}
                     required
                   />
                   {#if showError}
         <p class="errortag">Email or Phone is invalid</p>
-      {/if}
-                </div>
-                <button type="submit" class="btn btn-primary btn-submit"
-                  >Continue</button
-                >
-              </form>
-            {/if}
-            {#if showOtpForm}
-            <br/>
+        {/if}
+      </div>
+      <button type="submit" class="btn btn-primary btn-submit"
+      >Continue</button
+      >
+    </form>
+    {/if}
+    {#if showOtpForm}
+    <br/>
             <br>
             <br>
-    <form on:submit|preventDefault={handleOtpSubmit}>
+            <form on:submit|preventDefault={handleOtpSubmit}>
       <h3>Verify Number</h3>
       <br>
       <!-- <h6 for="otp">Enter OTP sent to 1234567890 <button>Edit</button></h6> -->
       {#if showOtpForm}
-            <h6>
-              Enter OTP sent to 1234567890 <a href="/" on:click={toggleEdit}
-                >Edit</a
-              >
+      <h6>
+        Enter OTP sent to {emailOrMobile} <a href="/" on:click={toggleEdit}
+        >Edit</a
+        >
             </h6>
             {:else}
             <h6></h6>
-          {/if}
-      <br>
-      <input class="form-control" type="text" id="otp" bind:value={otp} required />
+            {/if}
+            <br>
+            <input class="form-control" type="text" id="otp" bind:value={otp} required />
       <br>
       <br>
       <button class="btn btn-primary btn-submit" type="submit">VERIFY</button>
@@ -306,20 +320,33 @@
   {/if}
           </div>
           
-      </div>
-    </form>
-  </div>
-</nav>
+        </div>
+      </form>
+    </div>
+  </nav>
+</div>
+<div class="filler">
+</div>
 
-<style>
+  <style>
+    .tp {
+      position: fixed;
+      top: 0px;
+      background-color: white;
+      z-index: 10;
+      width: 100%;
+    }
+    .filler{
+      height: 150px;
+    }
     @media (max-width: 768px) {
     .nav-head{
-        display: flex;
-        flex-wrap: wrap;
+      display: flex;
+      flex-wrap: wrap;
         text-align: center;
     }
     .applynow-btn{
-        margin-top: -40px;
+      margin-top: -40px;
         margin-bottom: 10px;
     }
 }
