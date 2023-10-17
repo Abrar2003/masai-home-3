@@ -26,7 +26,7 @@
     flex-direction: row;
     margin: auto;
     justify-content: center;
-    padding: 20px;
+    /* padding: 20px; */
 }
 
 @media (max-width: 768px) {
@@ -36,7 +36,7 @@
 }
 
 .card {
-    max-width: 400px;
+    max-width: 408px;
     /* width: 300px; */
     padding: 20px;
     margin: 20px;
@@ -74,6 +74,12 @@
     margin-top: 10px;
 }
 
+.course-title-box{
+  margin: auto;
+  text-align: left;
+  margin-left: 0%;
+}
+
 .button-box {
     display: flex;
     justify-content: center;
@@ -81,7 +87,7 @@
 }
 
 .img-box {
-    width: 400px;
+    width: 408px;
     padding: 40px;
     margin-top: -20px;
     border-radius: 8px 8px 0px 0px;
@@ -91,8 +97,8 @@
 }
 
 .course-title {
-    font-size: 1.25rem;
-    font-weight: bold;
+    font-size: 20px;
+    font-weight: 700;
     text-align: start;
 }
 
@@ -148,9 +154,11 @@ p{
         <div class="img-box">
             <img class="image" src={course.image} alt={course.title} />
         </div>
-      
-      <p class="course-title">{course.title}</p>
+      <div class="course-title-box">
+        <p class="course-title">{course.title}</p>
       <p>Become job-ready in {course.duration}</p>
+      </div>
+      
       <hr />
   
       <div class="opportunities">

@@ -62,10 +62,11 @@
         Delivered.
       </h2>
       <p class="ms-masai-para-geading">
-        India’s only outcome-based career institute. Enter the tech workforce
+        India’s only outcome-based career institute.
+        <br/> Enter the tech workforce
         industry-ready.
       </p>
-      <Button buttonData={"get your dream job"} />
+      <button class="dreamjob-btn">GET YOUR DREAM JOB</button>
     </div>
     <div class="almuniMain-div-ms-right">
       <!-- -------------------------- -->
@@ -77,6 +78,7 @@
           alt="Slide"
         />
       </div>
+      <div class="rotated"></div>
       <!-- ................................ -->
 
       <div class="alumini-desc">
@@ -111,8 +113,8 @@
 
 <style>
   .almuni-main-div-ms {
-    border: 1px solid red;
-    max-width: 1138px;
+    /* border: 1px solid red; */
+    max-width: 1280px;
     margin: auto;
     margin-top: 10rem;
     margin-bottom: 12rem;
@@ -122,15 +124,18 @@
     align-items: center;
     justify-content: space-around;
     gap: 2rem;
-    width: 95%;
+    width: 100%;
     margin: auto;
 
     /* border: 1px solid red; */
   }
   .alumini-ms-masai-heading {
-    font-weight: 700;
-    text-align: left;
-    font-size: 2.5rem;
+    font-weight:bold;
+   font-size:48px;
+   color: black;
+   line-height: 62px;
+   text-align: left;
+   font-family: Poppins;
   }
   .alumini-ms-masai-heading > span {
     position: relative;
@@ -159,21 +164,34 @@
     width: 50%;
     height: 500px;
   }
+  .dreamjob-btn {
+  background-color: #ed0331;
+  border-radius: 8px;
+  border: none;
+  padding: 10px 20px; /* Adjusted padding for better spacing */
+  width: 260px;
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+  letter-spacing: 1.25px;
+}
 
   .almuniMain-div-ms-right {
     display: flex;
     align-items: center;
     justify-content: end;
   }
+
   /* Right Side */
 
   .alu-img-box {
     width: 70%;
+    position: relative;
   }
   .alu-img-box > img {
     width: 100%;
     display: inline-block;
-    background: rgb(121, 168, 250, 0.5);
+    background: #d6e2fa;
     padding: 5rem 10px 0px 10px;
     box-sizing: border-box;
     border-radius: 2rem;
@@ -182,6 +200,16 @@
   }
   .almuniMain-div-ms-right {
     position: relative;
+  }
+  .rotated{
+    border: 1px solid #3470e4;
+    width: 400px;
+    height: 500px;
+    position: absolute;
+    transform: rotate(-15deg);
+    z-index: -100;
+    border-radius: 10%;
+    left: 33%;
   }
 
   .alumini-desc {
@@ -254,7 +282,7 @@
     .almuni-main-div-ms-child {
       flex-wrap: wrap;
 
-      width: 100%;
+      width: 90%;
     }
     .almuniMain-div-ms-left,
     .almuniMain-div-ms-right {
@@ -289,6 +317,17 @@
       display: block;
       margin: auto;
     }
+    .rotated{
+      display: none;
+    border: 1px solid #3470e4;
+    width: 330px;
+    height: 400px;
+    position: absolute;
+    transform: rotate(-15deg);
+    z-index: -100;
+    border-radius: 10%;
+    left: 6%;
+  }
   }
 
   @media screen and (max-width: 425px){
@@ -304,5 +343,18 @@
       left: 2.2%;
       z-index: 0;
     }
+    .dreamjob-btn {
+  background-color: #ed0331;
+  border-radius: 8px;
+  border: none;
+  padding: 10px 20px; /* Adjusted padding for better spacing */
+  width: 260px;
+  font-size: 18px;
+  font-weight: 600;
+  color: white;
+  letter-spacing: 1.25px;
+  margin: auto;
+}
+    
   }
 </style>

@@ -16,6 +16,7 @@
   import Sidebar from "./Sidebar.svelte";
   import MasaiTechCommunity from "./MasaiTechCommunity/MasaiTechCommunity.svelte";
   import AluminiNew from "./AluminiNew.svelte";
+  import Nav2 from "./Nav2.svelte";
 </script>
 
 <svelte:head>
@@ -28,9 +29,11 @@
 
 
   <Navbar />
+  <!-- <Nav2/> -->
  
   <Banner />
-  <Alumini />
+  <!-- <Alumini /> -->
+  <AluminiNew/>
 
   <Sidebar />
   <Courses />

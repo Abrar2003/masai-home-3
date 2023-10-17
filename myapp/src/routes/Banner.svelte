@@ -26,15 +26,21 @@
     });
   </script>
   
-  {#if isDesktop || isTablet}
+  <div class="banner-main">
+    {#if isDesktop || isTablet}
     <img src="https://masai-website-images.s3.ap-south-1.amazonaws.com/banner_h_1_3d43d26bd0.webp" alt="Desktop Banner" />
   {:else if isMobile}
     <img src="https://masai-website-images.s3.ap-south-1.amazonaws.com/banner_m_1_b63dd244db.webp" alt="Mobile Banner" />
   {/if}
+  </div>
   
   <style>
+    .banner-main{
+      margin: auto;
+    }
     img {
       width: 100%;
+      /* margin-top: 30px; */
     }
   </style>
   

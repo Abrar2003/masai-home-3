@@ -37,6 +37,7 @@
 </script>
 
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;700&family=Roboto&family=Work+Sans&display=swap');
   .container {
       border: 1px solid black;
     max-width: 1280px;
@@ -49,8 +50,9 @@
 
   .flex-container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1280px;
     margin-top: 20px;
+    height: 1000px;
     display: flex;
     justify-content: space-between;
     /* flex-direction: column; */
@@ -58,13 +60,6 @@
     /* align-items: center; */
     /* text-align: center; */
   }
-
-  .flex-container img {
-    width: 90%;
-    max-width: 400px;
-    height: auto;
-  }
-
   .quote-start
   {
     position: absolute;
@@ -76,6 +71,30 @@
 
   .quote-end {
       position: absolute;
+  }
+  .alu-box1{
+      /* border: 1px solid black; */
+      /* border: 10px solid red; */
+      width: 100%;
+      text-align: left;
+      font-size: 24px;
+      font-weight: 700;
+  }
+
+  .alu-img-box{
+      border: 1px solid red;
+      display: flex;
+      width: 800px;
+      height: auto;
+      /* justify-content: end; */
+      margin: auto;
+  }
+  .alu-img{
+    display: flex;
+    width: 100%;
+    height: 500px;
+      border: 1px solid red;
+      background-color: rgba(121, 168, 250, 0.5);
   }
 
   @media (min-width: 768px) {
@@ -91,20 +110,8 @@
       max-width: 350px;
     }
   }
-  .alu-box1{
-      /* border: 1px solid black; */
-  }
-  .alu-img-box{
-      /* border: 1px solid red; */
-      display: flex;
-      justify-content: end;
-      width: 45%;
-  }
-  .alu-img{
-      
-      width: 100%;
-      background-color: rgba(121, 168, 250, 0.5);
-  }
+  
+  
   .alumini-desc{
       
       background: linear-gradient(89.52deg, rgba(245, 245, 245, 0.322) 2.5%, rgba(255, 255, 255, 0.7) 99.54%);
@@ -149,7 +156,7 @@
   }
 
   .alu-box1 {
-    width: 80%;
+    width: 100%;
   }
 
   .alu-img-box {
@@ -172,33 +179,37 @@
   border-radius: 8px;
   border: none;
   padding: 10px 20px; /* Adjusted padding for better spacing */
-  width: 250px;
-  font-weight: bold;
+  /* width: 350px; */
+  font-size: 18px;
+  font-weight: 600;
   color: white;
+  letter-spacing: 1.25px;
 }
-.hh1{
+
+.alumini-ms-masai-heading {
   font-weight:bold;
    font-size:48px;
-}
-.hh1with{
-    margin-right: 10px;
-    font-weight:bold;
-     font-size:48px;
+   color: black;
+   line-height: 62px;
+   text-align: left;
+   font-family: Poppins;
   }
-  .h11with{
-    display: none;
+  .alumini-ms-masai-heading > span {
+    position: relative;
+    color: red;
   }
-  .hh2{
-    font-size:48px;
-    margin-right: 10px;
-     color: #ed0331;
-      font-weight:bold;
+  .alumini-ms-masai-heading > span > img {
+    position: absolute;
+    /* top: 100; */
+    left: 0;
+    bottom: -10px;
+    width:22rem
+
+  
   }
-  .h1img{
-    /* border: 1px solid red; */
-    margin-top: -30px;
-     width: 100%;
-      margin-left:30%
+  .ms-masai-para-geading {
+    font-size: 24px;
+    font-weight: 400;
   }
 
 @media (max-width: 767px) {
@@ -271,35 +282,33 @@
 <div class="container">
   <div class="flex-container">
     <div class="alu-box1">
-      <h1 class="hh1">Realise Your Potential <span class="h11with">with</span></h1>
       
       <!-- Added code snippet here -->
-      <div style="display: flex; align-items: center; margin-top: 10px; font-weight:bold">
-          <h1 class="hh1with">With</h1> 
-          <span style="display: flex; align-items: center;">
-            <h1 class="hh2">Assured Outcomes</h1>
-          </span>
-          
-        <!-- </div> -->
-      </div>
-      <img
-              class="h1img"
-              src="https://www.masaischool.com/images/new-homepage/yellow-vector.svg"
-              alt="Assured Outcomes"
+        <h2 class="alumini-ms-masai-heading">
+          Realise Your Potential
+          <br />
+          With
+          <span>
+            Assured Outcomes <img
+              src="https://masaischool.com/images/new-homepage/yellow-vector.svg"
+              alt=""
             />
+          </span>
+  
+          Delivered.
+        </h2>
 
-      <h1 class="hh3">Delivered.</h1>
-      <p>
-          India’s only outcome-based career institute. <br>Enter the tech workforce
+        <p class="ms-masai-para-geading">
+          India’s only outcome-based career institute.<br/> Enter the tech workforce
           industry-ready.
         </p>
-      
       <button class="dreamjob-btn">GET YOUR DREAM JOB</button>
       
     </div>
     <div class="alu-img-box">
       <img class="alu-img" src={dataObjects[currentIndex].image} alt="Slide" />
     </div>
+    <div class="rotated"></div>
     
     
     
