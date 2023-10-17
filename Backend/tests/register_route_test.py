@@ -8,6 +8,7 @@ app = create_app()
 
 @pytest.fixture
 def client():
+    app.config['TESTING'] = True
     with app.test_client() as client:
         with app.app_context():
             db.create_all()
@@ -17,9 +18,9 @@ def client():
 
 def test_register_valid_user(client):
     user_data = {
-        'full_name': 'Alice Smith',
-        'email': 'alice@example.com',
-        'phone': '9876543210'
+        "full_name": "Alice Smith",
+        "email": "alice@example.com",
+        "phone": "9876543210"
     }
     response = client.post('/auth/register', data=json.dumps(user_data), content_type='application/json')
     data = json.loads(response.data)

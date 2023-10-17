@@ -1,5 +1,6 @@
 <script>
   import axios from "axios";
+  import { onMount } from "svelte";
   let isSignup = true;
   let isSignin = true;
 
@@ -75,11 +76,14 @@
     }
     emailOrMobile = email;
     try {
-      let res = await axios.post("http://localhost:5000/auth/register", {
-        full_name: fullname,
-        email: email,
-        phone: mobileNumber,
-      });
+      let res = await axios.post(
+        "http://aalam003.pythonanywhere.com/auth/register",
+        {
+          full_name: fullname,
+          email: email,
+          phone: mobileNumber,
+        }
+      );
       alert(`Your OTP is ${res.data.otp}`);
     } catch (error) {
       alert(`please login ${error.response.data.message}`);
@@ -96,9 +100,12 @@
       showError = true;
     }
     try {
-      let res = await axios.post("http://localhost:5000/auth/login", {
-        key: emailOrMobile,
-      });
+      let res = await axios.post(
+        "http://aalam003.pythonanywhere.com/auth/login",
+        {
+          key: emailOrMobile,
+        }
+      );
       alert(`Your OTP is ${res.data.otp}`);
     } catch (error) {
       alert(error.response.data.message);
@@ -109,7 +116,7 @@
     // window.location.href = '/';
     try {
       let res = await axios.post(
-        "http://localhost:5000/auth/verify",
+        "http://aalam003.pythonanywhere.com/auth/verify",
         {
           key: email || emailOrMobile,
           otp: otp,
@@ -119,11 +126,20 @@
         }
       );
       signedUser = res.data.name;
+      localStorage.setItem("token", JSON.stringify(res.data));
       alert(`${res.data.message} ${res.data.name}`);
     } catch (error) {
       alert(error.response.data.message);
     }
   }
+  function getName() {
+    const token = JSON.parse(localStorage.getItem("token"))
+    return token.name
+  }
+
+  onMount(() => {
+    signedUser = getName();
+  });
 </script>
 
 <div class="tp">
@@ -133,13 +149,9 @@
     </p>
     <button class="applynow-btn">APPLY NOW</button>
   </div>
+  <div class="nav-container">
   <nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand" href="/">
-      <img
-        src={"https://masai-website-images.s3.ap-south-1.amazonaws.com/logo.png"}
-        alt="SvelteKit"
-      /></a
-    >
+    <div class="logo-head">
     <button
       class="navbar-toggler"
       type="button"
@@ -151,6 +163,14 @@
     >
       <span class="navbar-toggler-icon" />
     </button>
+    <a class="navbar-brand" href="/">
+      <img
+        src={"https://masai-website-images.s3.ap-south-1.amazonaws.com/logo.png"}
+        alt="SvelteKit"
+      /></a
+    >
+  </div>
+  
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
@@ -176,208 +196,210 @@
           <a class="nav-link" href="/">HIRE FROM US</a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
+    </div>
+    <form class="form-inline my-2 my-lg-0 form-main">
+      <button
+        class="btn btn-outline-success my-2 my-sm-0 refer-btn"
+        type="submit">REFER & EARN</button
+      >
+      <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">SIGN UP</button> -->
+      {#if !signedUser}
         <button
-          class="btn btn-outline-success my-2 my-sm-0 refer-btn"
-          type="submit">REFER & EARN</button
-        >
-        <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">SIGN UP</button> -->
-        {#if !signedUser}
-        <button
-          class="btn btn-primary signup-btn "
+          class="btn btn-primary signup-btn"
           type="button"
           data-bs-toggle="offcanvas"
           data-bs-target="#offcanvasRight"
-          aria-controls="offcanvasRight" style="text-transform: uppercase;" >sign up</button
+          aria-controls="offcanvasRight"
+          style="text-transform: uppercase;">sign up</button
         >
         <!--  -->
         <!-- <p class="signed-user-name-msguru-masai">Guru Prasad</p> -->
-        {:else}
-
+      {:else}
         <button
-        class="btn btn-primary signup-btn  signed-user-name-msguru-masai"
-        type="button"
-        data-bs-toggle="offcanvas"
-        data-bs-target="#offcanvasRight"
-        aria-controls="offcanvasRight">{signedUser}</button
-      >
-        <!-- <p class="signed-user-name-msguru-masai">{signedUser}</p> -->
-        {/if}
-        <div
-          class="offcanvas offcanvas-end"
-          tabindex="-1"
-          id="offcanvasRight"
-          aria-labelledby="offcanvasRightLabel"
+          class="btn btn-primary signup-btn signed-user-name-msguru-masai"
+          type="button"
+          aria-controls="offcanvasRight">{signedUser}</button
         >
+        <!-- <p class="signed-user-name-msguru-masai">{signedUser}</p> -->
+      {/if}
+      <div
+        class="offcanvas offcanvas-end"
+        tabindex="-1"
+        id="offcanvasRight"
+        aria-labelledby="offcanvasRightLabel"
+      >
+        <div class="offcanvas-header">
           <div class="offcanvas-header">
-            <div class="offcanvas-header">
-              <div class="offcanvas-head1">
-                {#if isSignup}
-                  <p id="offcanvasRightLabel">Create Account</p>
-                {:else if isSignin}
-                  <p id="offcanvasRightLabel">Sign In</p>
-                {:else}
-                  <!-- <p>Enter OTP</p> -->
-                {/if}
-              </div>
+            <div class="offcanvas-head1">
+              {#if isSignup}
+                <p id="offcanvasRightLabel">Create Account</p>
+              {:else if isSignin}
+                <p id="offcanvasRightLabel">Sign In</p>
+              {:else}
+                <!-- <p>Enter OTP</p> -->
+              {/if}
             </div>
-
-            <button
-              type="button"
-              class="btn-close text-reset"
-              data-bs-dismiss="offcanvas"
-              aria-label="Close"
-            />
-          </div>
-          <!-- <div class="offcanvas-head2">
-          <h6>Already have an account? <a href="/">Sign in</a></h6>
-        </div> -->
-          <div class="offcanvas-head2">
-            {#if isSignup}
-              <h6>
-                Already have an account? <a href="/" on:click={toggleForm}
-                  >Sign in</a
-                >
-              </h6>
-            {:else if isSignin}
-              <h6>
-                New User? <a href="/" on:click={toggleForm}>Sign up</a>
-              </h6>
-            {:else}
-              <h6 />
-            {/if}
           </div>
 
-          <div class="offcanvas-body2" />
-          <div class="offcanvas-body">
-            {#if isSignup}
-              <!-- Signup Form -->
-              <form on:submit|preventDefault={handleSignupSubmit}>
-                <div class="mb-3">
-                  <label for="exampleInputname1" class="form-label"
-                    >Full Name
-                    <p class="requiredred">*</p></label
-                  >
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="exampleInputname1"
-                    aria-describedby="emailHelp"
-                    bind:value={fullname}
-                    on:input={handleFullnameChange}
-                    required
-                  />
-                  {#if showFullnameError}
-                    <p class="errortag">Please enter a valid name</p>
-                  {/if}
-                  <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
-                </div>
-                <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label"
-                    >Email address
-                    <p class="requiredred">*</p></label
-                  >
-                  <input
-                    type="email"
-                    class="form-control"
-                    id="exampleInputEmail1"
-                    aria-describedby="emailHelp"
-                    bind:value={email}
-                    on:input={handleEmailChange}
-                    required
-                  />
-                  {#if showEmailError}
-                    <p class="errortag">Please enter a valid email</p>
-                  {/if}
-                  <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
-                </div>
-                <div class="mb-3">
-                  <label for="exampleInputPassword1" class="form-label"
-                    >Phone Number
-                    <p class="requiredred">*</p></label
-                  >
-                  <input
-                    type=""
-                    class="form-control"
-                    id="exampleInputPassword1"
-                    bind:value={mobileNumber}
-                    on:input={handleMobileChange}
-                    required
-                  />
-                  {#if showMobileError}
-                    <p class="errortag">Please enter a valid mobile</p>
-                  {/if}
-                </div>
-                <button type="submit" class="btn btn-primary btn-submit"
-                  >Submit</button
+          <button
+            type="button"
+            class="btn-close text-reset"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          />
+        </div>
+        <!-- <div class="offcanvas-head2">
+        <h6>Already have an account? <a href="/">Sign in</a></h6>
+      </div> -->
+        <div class="offcanvas-head2">
+          {#if isSignup}
+            <h6>
+              Already have an account? <a href="/" on:click={toggleForm}
+                >Sign in</a
+              >
+            </h6>
+          {:else if isSignin}
+            <h6>
+              New User? <a href="/" on:click={toggleForm}>Sign up</a>
+            </h6>
+          {:else}
+            <h6 />
+          {/if}
+        </div>
+
+        <div class="offcanvas-body2" />
+        <div class="offcanvas-body">
+          {#if isSignup}
+            <!-- Signup Form -->
+            <form on:submit|preventDefault={handleSignupSubmit}>
+              <div class="mb-3">
+                <label for="exampleInputname1" class="form-label"
+                  >Full Name
+                  <p class="requiredred">*</p></label
                 >
-              </form>
-            {:else if isSignin}
-              <!-- Signin Form -->
-              <form on:submit|preventDefault={handleSigninSubmit}>
-                <div class="mb-3">
-                  <label for="exampleInputPassword1" class="form-label"
-                    >Phone number or email address
-                    <p class="requiredred">*</p></label
-                  >
-                  <input
-                    type=""
-                    class="form-control"
-                    id="exampleInputPassword1"
-                    bind:value={emailOrMobile}
-                    on:input={handleInputChange}
-                    required
-                  />
-                  {#if showError}
-                    <p class="errortag">Email or Phone is invalid</p>
-                  {/if}
-                </div>
-                <button type="submit" class="btn btn-primary btn-submit"
-                  >Continue</button
-                >
-              </form>
-            {/if}
-            {#if showOtpForm}
-              <br />
-              <br />
-              <br />
-              <form on:submit|preventDefault={handleOtpSubmit}>
-                <h3>Verify Number</h3>
-                <br />
-                <!-- <h6 for="otp">Enter OTP sent to 1234567890 <button>Edit</button></h6> -->
-                {#if showOtpForm}
-                  <h6>
-                    Enter OTP sent to {emailOrMobile}
-                    <a href="/" on:click={toggleEdit}>Edit</a>
-                  </h6>
-                {:else}
-                  <h6 />
-                {/if}
-                <br />
                 <input
-                  class="form-control"
                   type="text"
-                  id="otp"
-                  bind:value={otp}
+                  class="form-control"
+                  id="exampleInputname1"
+                  aria-describedby="emailHelp"
+                  bind:value={fullname}
+                  on:input={handleFullnameChange}
                   required
                 />
-                <br />
-                <br />
-                <button class="btn btn-primary btn-submit" type="submit"
-                  >VERIFY</button
+                {#if showFullnameError}
+                  <p class="errortag">Please enter a valid name</p>
+                {/if}
+                <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label"
+                  >Email address
+                  <p class="requiredred">*</p></label
                 >
-              </form>
-            {/if}
-          </div>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="exampleInputEmail1"
+                  aria-describedby="emailHelp"
+                  bind:value={email}
+                  on:input={handleEmailChange}
+                  required
+                />
+                {#if showEmailError}
+                  <p class="errortag">Please enter a valid email</p>
+                {/if}
+                <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label"
+                  >Phone Number
+                  <p class="requiredred">*</p></label
+                >
+                <input
+                  type=""
+                  class="form-control"
+                  id="exampleInputPassword1"
+                  bind:value={mobileNumber}
+                  on:input={handleMobileChange}
+                  required
+                />
+                {#if showMobileError}
+                  <p class="errortag">Please enter a valid mobile</p>
+                {/if}
+              </div>
+              <button type="submit" class="btn btn-primary btn-submit"
+                >Submit</button
+              >
+            </form>
+          {:else if isSignin}
+            <!-- Signin Form -->
+            <form on:submit|preventDefault={handleSigninSubmit}>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label"
+                  >Phone number or email address
+                  <p class="requiredred">*</p></label
+                >
+                <input
+                  type=""
+                  class="form-control"
+                  id="exampleInputPassword1"
+                  bind:value={emailOrMobile}
+                  on:input={handleInputChange}
+                  required
+                />
+                {#if showError}
+                  <p class="errortag">Email or Phone is invalid</p>
+                {/if}
+              </div>
+              <button type="submit" class="btn btn-primary btn-submit"
+                >Continue</button
+              >
+            </form>
+          {/if}
+          {#if showOtpForm}
+            <br />
+            <br />
+            <br />
+            <form on:submit|preventDefault={handleOtpSubmit}>
+              <h3>Verify Number</h3>
+              <br />
+              <!-- <h6 for="otp">Enter OTP sent to 1234567890 <button>Edit</button></h6> -->
+              {#if showOtpForm}
+                <h6>
+                  Enter OTP sent to {emailOrMobile}
+                  <a href="/" on:click={toggleEdit}>Edit</a>
+                </h6>
+              {:else}
+                <h6 />
+              {/if}
+              <br />
+              <input
+                class="form-control"
+                type="text"
+                id="otp"
+                bind:value={otp}
+                required
+              />
+              <br />
+              <br />
+              <button class="btn btn-primary btn-submit" type="submit"
+                >VERIFY</button
+              >
+            </form>
+          {/if}
         </div>
-      </form>
-    </div>
+      </div>
+    </form>
   </nav>
+</div>
 </div>
 <div class="filler" />
 
 <style>
-  .form-inline{
+  nav{
+    border: 1px solid blue;
+  }
+  .form-inline {
     display: flex;
     align-items: center;
   }
@@ -391,17 +413,6 @@
   .filler {
     height: 150px;
   }
-  @media (max-width: 768px) {
-    .nav-head {
-      display: flex;
-      flex-wrap: wrap;
-      text-align: center;
-    }
-    .applynow-btn {
-      margin-top: -40px;
-      margin-bottom: 10px;
-    }
-  }
   .nav-head {
     width: 100%;
     display: flex;
@@ -410,6 +421,21 @@
     gap: 20px;
     background-color: #fedfe5;
   }
+  .nav-container{
+    border: 1px solid black;
+    
+  width: 1280px;
+  margin: auto;
+}
+.nav-container>nav{
+  display: flex;
+  flex-direction: row;
+
+}
+.logo-head{
+  border: 1px solid red;
+  display: flex;
+}
   .applynow-btn {
     background-color: #ed0331;
     color: white;
@@ -472,13 +498,12 @@
       "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
       "Segoe UI Symbol", "Noto Color Emoji";
   }
-.signed-user-name-msguru-masai{
-  border: none !important;
-  color: black !important;
-  font-weight: 500 !important;
-  font-size: 1.2rem;
-
-}
+  .signed-user-name-msguru-masai {
+    border: none !important;
+    color: black !important;
+    font-weight: 500 !important;
+    font-size: 1.2rem;
+  }
 
   .offcanvas-head1 {
     text-align: center;
@@ -520,5 +545,49 @@
     font-weight: 550;
     height: 45px;
     border-radius: 8px;
+  }
+
+  @media (max-width: 768px) {
+    .nav-head {
+      display: flex;
+      flex-wrap: wrap;
+      text-align: center;
+    }
+    .applynow-btn {
+      margin-top: -40px;
+      margin-bottom: 10px;
+    }
+    nav{
+      /* background-color: blue; */
+  display: flex;
+  flex-direction: row;
+}
+.logo-head{
+  width: 15%;
+}
+.form-main{
+  border: 1px solid green;
+  width: 10%;
+  /* display: none; */
+
+}
+
+.signup-btn {
+    color: #ed0331;
+    border: 1px solid #ed0331;
+    background-color: white;
+    font-weight: 500;
+    padding: 8px 16px;
+    height: 50px;
+    border-radius: 8px;
+  }
+  .refer-btn {
+    border: none;
+    background-color: #e5feff;
+    color: rgba(5, 15, 32, 0.5);
+    font-weight: 550;
+    height: 45px;
+    border-radius: 8px;
+  }
   }
 </style>

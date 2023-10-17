@@ -20,17 +20,18 @@
 
 
 .card-container {
-    display: grid;
-    grid-template-columns: 1fr;
+  border: 1px solid black;
+  max-width: 1280px;
+    display: flex;
+    flex-direction: row;
+    margin: auto;
     justify-content: center;
     padding: 20px;
-    padding-left: 200px;
-    /* box-sizing: border-box; */
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
     .card-container {
-        grid-template-columns: repeat(2, 1fr);
+        flex-direction: column;
     }
 }
 

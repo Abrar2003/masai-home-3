@@ -104,6 +104,8 @@
 
     /* Add your CSS styles here */
     .container {
+      border: 1px solid black;
+      max-width: 1280px;
     display: flex;
     flex-direction: row;
     align-items: center;

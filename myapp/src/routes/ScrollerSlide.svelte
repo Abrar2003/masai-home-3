@@ -58,8 +58,9 @@
 
 <style>
     .container {
+        border: 1px solid black;
         display: flex;
-        width: 100%;
+        max-width: 1280px;
         gap: 30px;
         margin-bottom: 100px;
     }
