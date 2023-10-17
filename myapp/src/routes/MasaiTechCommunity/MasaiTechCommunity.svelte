@@ -222,7 +222,7 @@
   }
   .button-flex-msguru-masai {
     /* border: 1px solid red; */
-    max-width: 1138px;
+    max-width: 1280px;
     -webkit-font-smoothing: antialiased;
     margin: auto;
   }

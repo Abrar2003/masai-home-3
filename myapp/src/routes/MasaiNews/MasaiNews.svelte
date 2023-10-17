@@ -104,7 +104,7 @@
 
 .masai-msguru-news-main-container{
  
-    max-width: 1138px;
+    max-width: 1280px;
     /* -webkit-font-smoothing: antialiased; */
     margin: auto;
 }

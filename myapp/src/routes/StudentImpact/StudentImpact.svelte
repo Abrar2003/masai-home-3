@@ -25,8 +25,8 @@
 
 <style>
   .main-msguru-masai-student-impact {
-    border: 1px solid red;
-    max-width: 1138px;
+    /* border: 1px solid red; */
+    max-width: 1280px;
     margin: auto;
     /* -webkit-font-smoothing: antialiased; */
   }

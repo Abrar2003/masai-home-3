@@ -60,7 +60,7 @@
     /* border: 1px solid red; */
     /* width: 90%;
     margin: auto; */
-    max-width: 1138px;
+    max-width: 1280px;
     margin: auto;
     border-radius: 10px;
     background-color: #f2f6ff;
