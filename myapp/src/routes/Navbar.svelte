@@ -136,9 +136,13 @@
     const token = JSON.parse(localStorage.getItem("token"));
     return token.name;
   }
-
+function logout(){
+      localStorage.removeItem("token");
+      window.location.reload();
+    }
   onMount(() => {
     signedUser = getName();
+    
   });
 </script>
 
@@ -195,6 +199,7 @@
               <button
                 class="btn btn-primary signup-btn signed-user-name-msguru-masai"
                 type="button"
+                on:click={logout}
                 aria-controls="offcanvasRight">{signedUser}</button
               >
               <!-- <p class="signed-user-name-msguru-masai">{signedUser}</p> -->
@@ -253,6 +258,7 @@
             <button
               class="btn btn-primary signup-btn signed-user-name-msguru-masai"
               type="button"
+              on:click={logout}
               aria-controls="offcanvasRight">{signedUser}</button
             >
             <!-- <p class="signed-user-name-msguru-masai">{signedUser}</p> -->
@@ -412,6 +418,7 @@
                     <h6 />
                   {/if}
                   <br />
+
                   <input
                     class="form-control"
                     type="text"
@@ -419,6 +426,7 @@
                     bind:value={otp}
                     required
                   />
+
                   <br />
                   <br />
                   <button class="btn btn-primary btn-submit" type="submit"
@@ -438,6 +446,7 @@
 <div class="filler" />
 
 <style>
+
   .mobile-form{
     display: none;
   }
