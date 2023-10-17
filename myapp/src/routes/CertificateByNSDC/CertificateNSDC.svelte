@@ -52,6 +52,7 @@
 
 <style>
     .msguru-heading-laptopview-hide{
+      font-family: 'Poppins', sans-serif;
         display: none;
     }
   .msguru-certificate-nsdc {
@@ -60,7 +61,7 @@
     /* border: 1px solid red; */
     /* width: 90%;
     margin: auto; */
-    max-width: 1138px;
+    max-width: 1280px;
     margin: auto;
     border-radius: 10px;
     background-color: #f2f6ff;
@@ -78,7 +79,8 @@
     width: 100%;
   }
   .msguru-certificate-right-side {
-    font-size: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 34px;
     font-weight: 700;
     width: 100%;
     margin-top: 3rem;

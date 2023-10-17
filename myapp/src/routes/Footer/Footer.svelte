@@ -63,7 +63,7 @@
   }
   .masai-footer {
     color: white;
-    max-width: 1138px;
+    max-width: 1280px;
     margin: auto;
     background-color: rgb(0, 0, 0);
   }
