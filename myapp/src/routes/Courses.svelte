@@ -5,7 +5,7 @@
         title: "Full Stack Web Development",
         image: "https://masai-website-images.s3.ap-south-1.amazonaws.com/full_stack1_329d6b5595.png",
         duration: "30 weeks",
-        opportunities: ["Full Stack Developer, Software Engineer", "100% live learning with expert instructors.","Pay After Placement"],
+        opportunities: ["Opportunities: Full Stack Developer, Software Engineer & much more.", "100% live learning with expert instructors.","Pay After Placement"],
       },
       {
         title: "Backend Development",
@@ -27,6 +27,9 @@
     margin: auto;
     justify-content: center;
     /* padding: 20px; */
+}
+p{
+  display: flex;
 }
 
 @media (max-width: 768px) {
@@ -149,30 +152,78 @@ p{
 </div>
 <br>
   <div class="card-container">
-  {#each courses as course (course.title)}
     <div class="card">
         <div class="img-box">
-            <img class="image" src={course.image} alt={course.title} />
+            <img class="image" src="https://masai-website-images.s3.ap-south-1.amazonaws.com/full_stack1_329d6b5595.png" alt="" />
         </div>
       <div class="course-title-box">
-        <p class="course-title">{course.title}</p>
-      <p>Become job-ready in {course.duration}</p>
+        <p class="course-title">Full Stack Web Development</p>
+      <p>Become job-ready in 30 weeks</p>
       </div>
       
       <hr />
   
       <div class="opportunities">
-        {#each course.opportunities as opportunity (opportunity)}
           <div class="opportunity">
-            <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z"/></svg>
-            {opportunity}
+           <p>
+              <span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_24121_5085)"><path d="M12 0C5.38293 0 0 5.38293 0 12C0 18.6171 5.38293 24 12 24C18.6171 24 24 18.6171 24 12C24 5.38293 18.6171 0 12 0Z" fill="#EEFFF7"></path><path d="M18.0823 9.45703L11.5822 15.9569C11.3872 16.1519 11.1312 16.2501 10.8752 16.2501C10.6193 16.2501 10.3633 16.1519 10.1683 15.9569L6.91833 12.707C6.52722 12.316 6.52722 11.684 6.91833 11.293C7.30927 10.9019 7.94116 10.9019 8.33228 11.293L10.8752 13.836L16.6683 8.04309C17.0593 7.65198 17.6912 7.65198 18.0823 8.04309C18.4732 8.43402 18.4732 9.06592 18.0823 9.45703V9.45703Z" fill="#6FCD9E"></path></g><defs><clipPath id="clip0_24121_5085"><rect width="24" height="24" fill="white"></rect></clipPath></defs></svg>
+               <strong>Opportunities:</strong> Full Stack Developer, Software Engineer & much more.
+
+              </p>
           </div>
-        {/each}
+          <div class="opportunity">
+            <p>
+              <span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_24121_5085)"><path d="M12 0C5.38293 0 0 5.38293 0 12C0 18.6171 5.38293 24 12 24C18.6171 24 24 18.6171 24 12C24 5.38293 18.6171 0 12 0Z" fill="#EEFFF7"></path><path d="M18.0823 9.45703L11.5822 15.9569C11.3872 16.1519 11.1312 16.2501 10.8752 16.2501C10.6193 16.2501 10.3633 16.1519 10.1683 15.9569L6.91833 12.707C6.52722 12.316 6.52722 11.684 6.91833 11.293C7.30927 10.9019 7.94116 10.9019 8.33228 11.293L10.8752 13.836L16.6683 8.04309C17.0593 7.65198 17.6912 7.65198 18.0823 8.04309C18.4732 8.43402 18.4732 9.06592 18.0823 9.45703V9.45703Z" fill="#6FCD9E"></path></g><defs><clipPath id="clip0_24121_5085"><rect width="24" height="24" fill="white"></rect></clipPath></defs></svg>
+                100% live learning with expert instructors.
+
+            </p>
+          </div>
+          <div class="opportunity">
+            <p>
+              <span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_24121_5085)"><path d="M12 0C5.38293 0 0 5.38293 0 12C0 18.6171 5.38293 24 12 24C18.6171 24 24 18.6171 24 12C24 5.38293 18.6171 0 12 0Z" fill="#EEFFF7"></path><path d="M18.0823 9.45703L11.5822 15.9569C11.3872 16.1519 11.1312 16.2501 10.8752 16.2501C10.6193 16.2501 10.3633 16.1519 10.1683 15.9569L6.91833 12.707C6.52722 12.316 6.52722 11.684 6.91833 11.293C7.30927 10.9019 7.94116 10.9019 8.33228 11.293L10.8752 13.836L16.6683 8.04309C17.0593 7.65198 17.6912 7.65198 18.0823 8.04309C18.4732 8.43402 18.4732 9.06592 18.0823 9.45703V9.45703Z" fill="#6FCD9E"></path></g><defs><clipPath id="clip0_24121_5085"><rect width="24" height="24" fill="white"></rect></clipPath></defs></svg>
+                Pay After Placement
+            </p>
+          </div>
       </div>
   <br>
       <button class="button">VIEW DETAILS</button>
     </div>
-  {/each}
+    <div class="card">
+      <div class="img-box">
+          <img class="image" src="https://masai-website-images.s3.ap-south-1.amazonaws.com/backend_ea129d404e.png" alt="" />
+      </div>
+    <div class="course-title-box">
+      <p class="course-title">Backend Development</p>
+    <p>Become job-ready in 35 weeks</p>
+    </div>
+    
+    <hr />
+
+    <div class="opportunities">
+        <div class="opportunity">
+          <p>
+            <span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_24121_5085)"><path d="M12 0C5.38293 0 0 5.38293 0 12C0 18.6171 5.38293 24 12 24C18.6171 24 24 18.6171 24 12C24 5.38293 18.6171 0 12 0Z" fill="#EEFFF7"></path><path d="M18.0823 9.45703L11.5822 15.9569C11.3872 16.1519 11.1312 16.2501 10.8752 16.2501C10.6193 16.2501 10.3633 16.1519 10.1683 15.9569L6.91833 12.707C6.52722 12.316 6.52722 11.684 6.91833 11.293C7.30927 10.9019 7.94116 10.9019 8.33228 11.293L10.8752 13.836L16.6683 8.04309C17.0593 7.65198 17.6912 7.65198 18.0823 8.04309C18.4732 8.43402 18.4732 9.06592 18.0823 9.45703V9.45703Z" fill="#6FCD9E"></path></g><defs><clipPath id="clip0_24121_5085"><rect width="24" height="24" fill="white"></rect></clipPath></defs></svg>
+              <strong>Opportunities:</strong> Backend Web Developer, API developer & much more.
+
+          </p>
+        </div>
+        <div class="opportunity">
+          <p>
+            <span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_24121_5085)"><path d="M12 0C5.38293 0 0 5.38293 0 12C0 18.6171 5.38293 24 12 24C18.6171 24 24 18.6171 24 12C24 5.38293 18.6171 0 12 0Z" fill="#EEFFF7"></path><path d="M18.0823 9.45703L11.5822 15.9569C11.3872 16.1519 11.1312 16.2501 10.8752 16.2501C10.6193 16.2501 10.3633 16.1519 10.1683 15.9569L6.91833 12.707C6.52722 12.316 6.52722 11.684 6.91833 11.293C7.30927 10.9019 7.94116 10.9019 8.33228 11.293L10.8752 13.836L16.6683 8.04309C17.0593 7.65198 17.6912 7.65198 18.0823 8.04309C18.4732 8.43402 18.4732 9.06592 18.0823 9.45703V9.45703Z" fill="#6FCD9E"></path></g><defs><clipPath id="clip0_24121_5085"><rect width="24" height="24" fill="white"></rect></clipPath></defs></svg>
+              100% live learning with expert instructors.
+
+          </p>
+        </div>
+        <div class="opportunity">
+          <p>
+            <span><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_24121_5085)"><path d="M12 0C5.38293 0 0 5.38293 0 12C0 18.6171 5.38293 24 12 24C18.6171 24 24 18.6171 24 12C24 5.38293 18.6171 0 12 0Z" fill="#EEFFF7"></path><path d="M18.0823 9.45703L11.5822 15.9569C11.3872 16.1519 11.1312 16.2501 10.8752 16.2501C10.6193 16.2501 10.3633 16.1519 10.1683 15.9569L6.91833 12.707C6.52722 12.316 6.52722 11.684 6.91833 11.293C7.30927 10.9019 7.94116 10.9019 8.33228 11.293L10.8752 13.836L16.6683 8.04309C17.0593 7.65198 17.6912 7.65198 18.0823 8.04309C18.4732 8.43402 18.4732 9.06592 18.0823 9.45703V9.45703Z" fill="#6FCD9E"></path></g><defs><clipPath id="clip0_24121_5085"><rect width="24" height="24" fill="white"></rect></clipPath></defs></svg>
+              Pay After Placement
+          </p>
+        </div>
+    </div>
+<br>
+    <button class="button">VIEW DETAILS</button>
+  </div>
 </div>
 <br>
  <div class="button-box">

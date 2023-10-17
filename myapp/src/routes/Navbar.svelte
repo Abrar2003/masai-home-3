@@ -530,10 +530,6 @@
     height: 45px;
     border-radius: 8px;
   }
-  .navbar-brand>img{
-    /* width: 100%; */
-    width: 100px;
-  }
   .mb-3 {
     font-size: 14px;
     font-weight: bold;
@@ -617,6 +613,7 @@
     /* .navbar-light{
   border: 1px solid rgb(229, 133, 133);
 } */
+    /* .logo-head{
     /* .logo-head{
   border:1px solid rgb(21, 129, 218);
 
@@ -703,6 +700,16 @@
       margin: 0%;
       width: 50%;
       /* margin-left: -20px; */
+    }
+    /* .navbar-brand>img{
+    width: 50px;
+  } */
+  }
+  @media (max-width: 480px) {
+    .logo-head {
+      width: 5%;
+      padding: 0;
+      margin: 0;
     }
     /* .navbar-brand>img{
     width: 50px;
