@@ -38,8 +38,8 @@
 
 <style>
   .container {
-      /* border: 1px solid black; */
-    width: 100%;
+      border: 1px solid black;
+    max-width: 1280px;
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
