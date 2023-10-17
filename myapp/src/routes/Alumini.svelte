@@ -1,4 +1,5 @@
 <script>
+  import { onMount } from "svelte";
   let currentIndex = 0; 
   const dataObjects = [
     {
@@ -29,7 +30,6 @@
     setTimeout(nextSlide, 5000); // Change slide every 5 seconds (5000 milliseconds)
   }
 
-  import { onMount } from "svelte";
   onMount(() => {
     setTimeout(nextSlide, 5000); // Start the slider after the component is mounted
   });

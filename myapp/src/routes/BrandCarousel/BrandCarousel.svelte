@@ -223,48 +223,56 @@
         "https://masai-website-images.s3.ap-south-1.amazonaws.com/moneytap_d5a6c9d532.svg",
     },
   ];
-  let isMedia ;
+  let isMedia;
 </script>
 
-<div style="padding: 2rem 0rem;">
-  <p class="masai-msguru-hiring-partner-banner" class:media={isMedia} >
-    Meet Our <span
-      >4000+ <img src="https://masaischool.com/images/new-homepage/yellow-vector.svg" alt="" />
-    </span> Hiring Partners
-  </p>
-  
-  <div
-    class={"scroller " + (animated ? "animated" : "")}
-    data-direction="left"
-    data-speed="fast"
-  >
-    <div class="scroller__inner">
-      {#each images as img (img.id)}
-        <img class="imageScrolling" src={img.image} alt={"Item " + img.id} />
-      {/each}
+<div class="msguru-masai-brand-main">
+  <div style="padding: 2rem 0rem;">
+    <p class="masai-msguru-hiring-partner-banner" class:media={isMedia}>
+      Meet Our <span
+        >4000+ <img
+          src="https://masaischool.com/images/new-homepage/yellow-vector.svg"
+          alt=""
+        />
+      </span> Hiring Partners
+    </p>
+
+    <div
+      class={"scroller " + (animated ? "animated" : "")}
+      data-direction="left"
+      data-speed="fast"
+    >
+      <div class="scroller__inner">
+        {#each images as img (img.id)}
+          <img class="imageScrolling" src={img.image} alt={"Item " + img.id} />
+        {/each}
+      </div>
     </div>
   </div>
 </div>
 
 <style>
+  .msguru-masai-brand-main {
+    width: 100%;
+    margin: auto;
+  }
 
+  .masai-msguru-hiring-partner-banner {
+    text-align: center;
+    font-size: 2.3rem;
+    font-weight: 700;
+  }
 
-.masai-msguru-hiring-partner-banner{
-  text-align: center;
-  font-size: 2.3rem;
-  font-weight: 700;
-}
-
-.masai-msguru-hiring-partner-banner>span{
-  position: relative;
-  color: red;
-}
-.masai-msguru-hiring-partner-banner>span>img{
-  position: absolute;
-  width: 115px;
-  bottom: 0;
-  left: 0;
-}
+  .masai-msguru-hiring-partner-banner > span {
+    position: relative;
+    color: red;
+  }
+  .masai-msguru-hiring-partner-banner > span > img {
+    position: absolute;
+    width: 115px;
+    bottom: 0;
+    left: 0;
+  }
   .scroller {
     max-width: 100%;
     margin: auto;
@@ -355,28 +363,21 @@
     background: red !important;
   }
   @media screen and (max-width: 860px) {
-    .masai-msguru-hiring-partner-banner{
-  font-size: 2rem;
-}
+    .masai-msguru-hiring-partner-banner {
+      font-size: 2rem;
+    }
 
-.masai-msguru-hiring-partner-banner>span>img{
- 
-  width: 90px;
+    .masai-msguru-hiring-partner-banner > span > img {
+      width: 90px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .masai-msguru-hiring-partner-banner {
+      font-size: 1.5rem;
+    }
 
-}
-
-   }
-   @media screen and (max-width: 480px) {
-    .masai-msguru-hiring-partner-banner{
-  font-size: 1.5rem;
-}
-
-.masai-msguru-hiring-partner-banner>span>img{
- 
- width: 70px;
-
-}
-
-   }
-
+    .masai-msguru-hiring-partner-banner > span > img {
+      width: 70px;
+    }
+  }
 </style>

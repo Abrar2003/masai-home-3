@@ -8,7 +8,7 @@
             image: "https://www.masaischool.com/images/new-homepage/curriculum-style/course-image1.webp"
         },
         {
-            heading: "Generative AI Integrated Program",
+            heading: `${`Generative AI Integrated Program`}`,
             description: "Harness & Implement The Power Of AI In Coding & Data Analytics. What’s More? Use Custom AI Tools To Enhance Placement Preparation.",
             image: "https://www.masaischool.com/images/new-homepage/curriculum-style/course-image2.webp"
         },
@@ -28,6 +28,8 @@
             image: "https://www.masaischool.com/images/new-homepage/curriculum-style/course-image5.webp"
         }
     ];
+
+    
 
     let currentHeadingIndex = 0;
     let currentImage = data[currentHeadingIndex].image;

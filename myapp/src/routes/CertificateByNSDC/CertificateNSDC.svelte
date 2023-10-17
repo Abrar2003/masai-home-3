@@ -57,9 +57,11 @@
   .msguru-certificate-nsdc {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    width: 90%;
-    margin: auto;
     /* border: 1px solid red; */
+    /* width: 90%;
+    margin: auto; */
+    max-width: 1138px;
+    margin: auto;
     border-radius: 10px;
     background-color: #f2f6ff;
     padding: 1rem;
