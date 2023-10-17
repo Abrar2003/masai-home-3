@@ -93,8 +93,7 @@
     border-radius: 10px;
   }
   .msguru-masai-left-carousel {
-    /* width: 100%; */
-    /* border: 1px solid red; */
+   width: 100%;
   }
   .carousel-inner {
     position: relative;

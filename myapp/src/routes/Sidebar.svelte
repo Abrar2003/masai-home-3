@@ -95,6 +95,13 @@
   </script>
   
   <style>
+
+.ms-masai-sidebar{
+  border: 1px solid red;
+  max-width: 1138px;
+  margin: auto;
+}
+
     /* Add your CSS styles here */
     .container {
     display: flex;
@@ -227,7 +234,11 @@
    } 
     
   </style>
-  
+ 
+
+ <div class="ms-masai-sidebar">
+
+   
   <h1 class="headline" >Driven By <span style="color: #ed0331;">Outcomes</span> To Launch Your Career In Tech</h1>
   <div class="container">
   <div
@@ -281,3 +292,5 @@
     {/if}
   </div>
 </div>
+
+ </div>

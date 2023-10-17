@@ -63,7 +63,9 @@
   .msguru-masai-careed-possibilities-main {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    width: 90%;
+    /* width: 90%; */
+    /* margin: auto; */
+    max-width: 1138px;
     margin: auto;
     padding: 25px 0px;
   }

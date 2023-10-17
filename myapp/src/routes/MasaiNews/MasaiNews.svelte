@@ -44,6 +44,7 @@
   let isLastSlide = currentIndex === slides.length - 1;
 </script>
 
+<div class="masai-msguru-news-main-container">
 <div class="msguru-center-text">
   {#if isMobile}
     <h3>
@@ -97,14 +98,23 @@
     {/each}
   </div>
 {/if}
+</div>
 
 <style>
+
+.masai-msguru-news-main-container{
+ 
+    max-width: 1138px;
+    /* -webkit-font-smoothing: antialiased; */
+    margin: auto;
+}
+
   .msguru-desktop-grid {
     margin: auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 25px;
-    width: 90%;
+    width: 100%;
     /* padding: 0px 0px 45px 0px; */
     margin-bottom: 30px;
   }

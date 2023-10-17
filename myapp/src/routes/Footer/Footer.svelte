@@ -7,7 +7,7 @@
   let isMedia = 460;
 </script>
 
-<div>
+<div class="mas-msguru-maisai-footer-main">
   <div class="masai-footer">
     <!-- Top -->
     <div>
@@ -37,7 +37,7 @@
         <BottomFooter />
       </div>
     </div>
-    <CopyRight/>
+    <CopyRight />
   </div>
 </div>
 
@@ -55,8 +55,16 @@
   hr {
     border: 0.5px solid rgb(247, 176, 176);
   }
+  .mas-msguru-maisai-footer-main{
+    background-color: rgb(0, 0, 0);
+    width: 100%;
+    /* height: 500px; */
+
+  }
   .masai-footer {
     color: white;
+    max-width: 1138px;
+    margin: auto;
     background-color: rgb(0, 0, 0);
   }
   .masai-top-footer {
@@ -64,7 +72,6 @@
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    /* height: 130px; */
     padding: 15px 0px;
   }
   .masai-top-footer > img {

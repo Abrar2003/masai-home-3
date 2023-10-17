@@ -3,7 +3,7 @@
   import StudentImpactRight from "./StudentImpactRight.svelte";
 </script>
 
-<div>
+<div class="main-msguru-masai-student-impact">
   <div class="msguru-creating-impact-masai">
     <h2>
       Our Students Are <span
@@ -24,9 +24,15 @@
 <RightSideSlider /> -->
 
 <style>
-   .msguru-creating-impact-masai{
+  .main-msguru-masai-student-impact {
+    border: 1px solid red;
+    max-width: 1138px;
+    margin: auto;
+    /* -webkit-font-smoothing: antialiased; */
+  }
+  .msguru-creating-impact-masai {
     padding: 2rem 0rem;
-   }
+  }
   .msguru-creating-impact-masai > h2 {
     text-align: center;
     font-size: 1.9rem;
@@ -47,8 +53,9 @@
     align-items: center;
     justify-content: space-around;
     gap: 2rem;
-    width: 90%;
+    width: 100%;
     margin: auto;
+    border: 1px solid red;
   }
   .mainWind {
     width: 50%;
@@ -82,13 +89,14 @@
     .msguru-creating-impact-masai > h2 {
       font-size: 1.4rem;
     }
-    .msguru-creating-impact-masai > h2 > span > img{
+    .msguru-creating-impact-masai > h2 > span > img {
       width: 170px;
     }
   }
-  @media screen and (max-width: 360px){
-    .msguru-creating-impact-masai > h2 > span > img{
+  @media screen and (max-width: 360px) {
+    .msguru-creating-impact-masai > h2 > span > img {
       display: none;
     }
+
   }
 </style>

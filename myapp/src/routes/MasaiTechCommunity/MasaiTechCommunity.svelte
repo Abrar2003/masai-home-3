@@ -24,13 +24,91 @@
       id: 4,
       text: "Item 4",
       image:
-        "https://www.masaischool.com/images/new-homepage/community/community1.webp",
+        "https://www.masaischool.com/images/new-homepage/community/community4.webp",
     },
     {
       id: 5,
       text: "Item 5",
       image:
         "https://www.masaischool.com/images/new-homepage/community/community1.webp",
+    },
+    {
+      id: 6,
+      text: "Item 2",
+      image:
+        "https://www.masaischool.com/images/new-homepage/community/community10.webp",
+    },
+    {
+      id: 7,
+      text: "Item 1",
+      image:
+        "https://www.masaischool.com/images/new-homepage/community/community11.webp",
+    },
+    {
+      id: 8,
+      text: "Item 1",
+      image:
+        "https://www.masaischool.com/images/new-homepage/community/community11.webp",
+    },
+    {
+      id: 9,
+      text: "Item 1",
+      image:
+        "https://www.masaischool.com/images/new-homepage/community/community5.webp",
+    },
+    {
+      id: 10,
+      text: "Item 1",
+      image:
+        "https://www.masaischool.com/images/new-homepage/community/community10.webp",
+    },
+    {
+      id: 11,
+      text: "Item 1",
+      image:
+        "https://www.masaischool.com/images/new-homepage/community/community8.webp",
+    },
+    {
+      id: 12,
+      text: "Item 1",
+      image:
+        "https://www.masaischool.com/images/new-homepage/community/community9.webp",
+    },
+    {
+      id: 13,
+      text: "Item 1",
+      image:
+        "https://www.masaischool.com/images/new-homepage/community/community9.webp",
+    },
+    {
+      id: 14,
+      text: "Item 1",
+      image:
+        "https://www.masaischool.com/images/new-homepage/community/community8.webp",
+    },
+    {
+      id: 15,
+      text: "Item 1",
+      image:
+        "https://www.masaischool.com/images/new-homepage/community/community10.webp",
+    },
+    {
+      id: 16,
+      text: "Item 1",
+      image:
+        "https://www.masaischool.com/images/new-homepage/community/community10.webp",
+    },
+    {
+      id: 17,
+      text: "Item 1",
+      image:
+        "https://www.masaischool.com/images/new-homepage/community/community10.webp",
+    },
+    {
+      id: 18,
+      text: "Item 1",
+      image:
+        "https://www.masaischool.com/images/new-homepage/community/community10.webp",
     },
   ];
   let currentIndex = 0;
@@ -48,6 +126,7 @@
   }
 </script>
 
+<div class="masai-tech-communitu-msguru-masai-update">
 <!-- Heading -->
 <div class="headding-tech-community-msguru-masai">
   <h2 class="">
@@ -94,8 +173,14 @@
     </div>
   </div>
 </div>
+</div>
 
 <style>
+/* .masai-tech-communitu-msguru-masai-update{
+  max-width: 1138px;
+  margin: auto;
+} */
+
   /* Heading */
 
   .headding-tech-community-msguru-masai {
@@ -103,6 +188,7 @@
     padding: 2rem 0rem;
   }
   .headding-tech-community-msguru-masai > h2 {
+    /* margin: auto; */
     font-size: 2rem;
     font-weight: 700;
   }
@@ -130,10 +216,15 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
+   
     margin: 16px 10px;
     gap: 10px;
   }
   .button-flex-msguru-masai {
+    /* border: 1px solid red; */
+    max-width: 1138px;
+    -webkit-font-smoothing: antialiased;
+    margin: auto;
   }
 
   .masai-guru-right-slide-main-ul {
@@ -145,6 +236,7 @@
     /* width: 100%; */
   }
   .masai-guru-right-slide-main-li {
+    margin: auto;
     flex-shrink: 0;
     /* width: 200px; */
   }

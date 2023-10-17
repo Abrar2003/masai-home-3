@@ -15,6 +15,7 @@
   import ScrollerSlide from "./ScrollerSlide.svelte";
   import Sidebar from "./Sidebar.svelte";
   import MasaiTechCommunity from "./MasaiTechCommunity/MasaiTechCommunity.svelte";
+  import AluminiNew from "./AluminiNew.svelte";
 </script>
 
 <svelte:head>
@@ -30,6 +31,7 @@
  
   <Banner />
   <Alumini />
+
   <Sidebar />
   <Courses />
   <ScrollerSlide />
