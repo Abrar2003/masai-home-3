@@ -112,11 +112,12 @@
 </div>
 
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;700&family=Roboto&family=Work+Sans&display=swap');
   .almuni-main-div-ms {
     /* border: 1px solid red; */
     max-width: 1280px;
     margin: auto;
-    margin-top: 10rem;
+    margin-top: 5rem;
     margin-bottom: 12rem;
   }
   .almuni-main-div-ms-child {
@@ -256,15 +257,18 @@
 
   @media screen and (max-width: 780px) {
     .alumini-ms-masai-heading {
-      font-size: 1.5rem;
+      font-size: 24px;
+      line-height: 32px;
+      
     }
     .ms-masai-para-geading {
       width: 90%;
       font-weight: 600;
-      margin: auto;
+      /* margin: auto; */
       text-align: center;
       padding: 0;
       font-size: 1rem;
+      line-height: 32px;
     }
     .almuniMain-div-ms-left {
       gap: 0;
@@ -353,8 +357,11 @@
   font-weight: 600;
   color: white;
   letter-spacing: 1.25px;
-  margin: auto;
+  margin: 0px auto;
 }
+.almuni-main-div-ms-child {
+      gap: 0rem;
+    }
     
   }
 </style>

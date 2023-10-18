@@ -97,14 +97,14 @@
   <style>
 
 .ms-masai-sidebar{
-  border: 1px solid red;
+  /* border: 1px solid red; */
   max-width: 1280px;
   margin: auto;
 }
 
     /* Add your CSS styles here */
     .container {
-      border: 1px solid black;
+      /* border: 1px solid black; */
       max-width: 1280px;
     display: flex;
     flex-direction: row;
@@ -120,7 +120,6 @@
     padding: 20px;
     background-color: #ffffff;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     overflow-y: auto;
     max-height: 180vh;
     width: 30%;
@@ -142,6 +141,13 @@
     padding: 0;
   }
 
+  .dashed-vertical-line {
+  border-left: 3px dashed #000;
+  width: 20px; /* 1px width and black color, you can adjust as needed */
+  height: 30px; /* Specify the height of your dashed line */
+  margin-left: 60px; /* Adjust the left margin as needed */
+}
+
   .button-list-item {
     margin-bottom: 10px;
   }
@@ -158,6 +164,17 @@
     }
     .img{
         width: 100%;
+        height: 560px;
+        border-radius: 8px;
+    }
+    .button-list{
+    margin: auto;
+    margin-top: 10px;
+  }
+    .box-no{
+      border: 1px solid black;
+      padding: 5px 15px 5px 15px;
+      border-radius: 8px;
     }
   
     @media (min-width: 768px) {
@@ -171,13 +188,15 @@
       .button {
         width: 100%;
         margin-bottom: 0;
-
+        font-size: 18px;
+        font-weight: 700;
+        padding: auto 50px auto 50px;
       }
   
       .content {
         margin-top: 0;
-        margin-left: 20px;
-        width: 90%;
+        /* margin-left: 20px; */
+        width: 80%;
         /* border: 1px solid red; */
       }
     }
@@ -233,6 +252,12 @@
     width: 240px;
     text-align: center;
   }
+  .dashed-vertical-line{
+    display: none;
+  }
+  .box-no{
+    display: none;
+  }
    } 
     
   </style>
@@ -273,17 +298,18 @@
             on:focus={() => { isHovered = true; startAutoClick(); }}
           >
             {#if num === 1}
-              Career Launchpad
+             <span class="box-no">1</span> Career Launchpad
             {:else if num === 2}
-              Nurture Ambition
+            <span class="box-no">2</span> Nurture Ambition
             {:else if num === 3}
-              Practice Based
+            <span class="box-no">3</span> Practice Based
             {:else if num === 4}
-              Industry Readiness
+            <span class="box-no">4</span> Industry Readiness
             {:else if num === 5}
-              Holistic Development
+            <span class="box-no">5</span>HolisticDevelopment
             {/if}
           </div>
+          <div class="dashed-vertical-line"></div>
         </li>
       {/each}
     </ul>

@@ -70,7 +70,7 @@ p{
 .button {
     background-color: #ed0331;
     color: white;
-    padding: 10px 20px;
+    padding: 13px 20px;
     border: none;
     border-radius: 8px;
     cursor: pointer;
@@ -93,6 +93,7 @@ p{
   font-family: Open Sans;
   color: rgb(33, 25, 27);
   font-weight: 600;
+  margin-bottom: 5px;
 }
 
 .img-box {
@@ -130,6 +131,7 @@ p{
     font-weight: 100;
     font-family: sans-serif;
     color: #544D4F;
+    
 }
 
 .head{
@@ -153,6 +155,11 @@ p{
     }
 
     .img-box {
+        width: 113%;
+        padding: 10px;
+        height: 150px;
+    }
+    .img-box-1 {
         width: 113%;
         padding: 10px;
         height: 150px;

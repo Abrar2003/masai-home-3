@@ -57,9 +57,11 @@
 </script>
 
 <style>
+   @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;700&family=Roboto&family=Work+Sans&display=swap'); 
     .container {
-        border: 1px solid black;
+        /* border: 1px solid black; */
         display: flex;
+        justify-content: space-between;
         max-width: 1280px;
         gap: 30px;
         margin-bottom: 100px;
@@ -73,6 +75,7 @@
     }
     #scroll-container::-webkit-scrollbar {
         width: 0.4rem;
+        /* background-color: red; */
     }
     .headline{
         margin-top: 40px;
@@ -85,22 +88,33 @@
         height: 300px;
         text-align: center;
         padding: 20px;
-        /* border-bottom: 1px solid #ccc; */
+        margin-top: 100px;
+        /* border: 19px solid black; */
     }
 
     .image-box {
-        height: 350px;
-        width: 60%;
+        height: 395px;
+        width: 45%;
         margin-top: 20px;
         border: 1px solid #ccc;
-        border-radius: 8px 8px 50px 8px;
+        border-radius: 24px;
     }
     .scroll-p{
-        font-weight: bold;
+        color: black;
         text-align: start;
+
+    }
+    .scroll-icon{
+        display: none;
     }
     p{
         text-align: start;
+        font-size: 16px;
+        font-family: Open Sans, sans-serif;
+        font-weight: 400;
+        margin: 24px 24px 24px 0px;
+        padding: 0px 50px 0px 0px;
+    /* border: 1px solid red; */
     }
     .scroll-head-imgbox{
         display: none;
@@ -123,6 +137,12 @@
     margin-top: 10px;
     font-size: 19px;
     font-weight: 600;
+    
+}
+.scroll-p{
+    font-size: 24px;
+    font-weight: 700;
+    font-family: poppins;
     
 }
     @media (max-width: 768px) {
@@ -184,15 +204,35 @@
 </div>
 <div class="container">
     <div id="scroll-container">
-        {#each data as { heading, description }, index}
+        
             <div class="heading">
-                <h3 class="scroll-p">{heading}</h3>
-                <p>{description}</p>
+                <img class="scroll-icon" src="/"/>
+                <h3 class="scroll-p"><span style="color:rgb(237, 3, 49)">100% </span>Live Distance Learning</h3>
+                <p>India’s Only Live Tech-Learning Course With Tier 1 Instructors. Get Real-Time Feedback, Interactive Sessions & A Personalised Learning Experience.</p>
             </div>
-        {/each}
+            <div class="heading">
+                <img class="scroll-icon" src="/"/>
+                <h3 class="scroll-p">Generative <span style="color:rgb(237, 3, 49)"> AI Integrated</span>  Program</h3>
+                <p>Harness & Implement The Power Of AI In Coding & Data Analytics. What’s More? Use Custom AI Tools To Enhance Placement Preparation.</p>
+            </div>
+            <div class="heading">
+                <img class="scroll-icon" src="/"/>
+                <h3 class="scroll-p"><span style="color:rgb(237, 3, 49)">Industry Ready </span>Curriculum</h3>
+                <p>Our Curriculum Is Regularly Updated Through Industry Feedback. In-Demand Specialisations Are Added To Aid Our Students Launch Sustainable Careers.</p>
+            </div>
+            <div class="heading">
+                <img class="scroll-icon" src="/"/>
+                <h3 class="scroll-p">Focus On Learning <span style="color:rgb(237, 3, 49)"> Agility </span> </h3>
+                <p>We Prioritise Flexible Thinking & Continuous Skill Development. Stay Nimble In An Ever-Changing World By Embracing Adaptability, Curiosity & Rapid Learning.</p>
+            </div>
+            <div class="heading">
+                <img class="scroll-icon" src="/"/>
+                <h3 class="scroll-p">Industry Ready In Just <span style="color:rgb(237, 3, 49)"><br/>25-30 Weeks</span></h3>
+                <p>Curriculum At Masai Is Designed To Be Intensive & Extensive. With Our Unique Pedagogy Learn Right In Less Time. All We Ask Is Your Dedication!</p>
+            </div>
     </div>
     <div class="image-box">
-        <img src={currentImage} alt="Current Image" style="width: 100%; height: 100%; border-radius: 8px 8px 50px 8px" />
+        <img src={currentImage} alt="Current Image" style="width: 100%; height: 395px; border-radius: 24px" />
     </div>
 </div>
 <div class="btn-div">

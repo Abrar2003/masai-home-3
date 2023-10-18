@@ -265,7 +265,7 @@ function logout(){
           {/if}
       </div>
       <div class="desktop-form-signin">
-        <form class="form-inline my-2 my-lg-0">
+        <form class="form-inline my-2 my-lg-0 form-div">
           
           <div
             class="offcanvas offcanvas-end"
@@ -326,6 +326,7 @@ function logout(){
                       type="text"
                       class="form-control"
                       id="exampleInputname1"
+                      placeholder="Enter full name"
                       aria-describedby="emailHelp"
                       bind:value={fullname}
                       on:input={handleFullnameChange}
@@ -346,6 +347,7 @@ function logout(){
                       class="form-control"
                       id="exampleInputEmail1"
                       aria-describedby="emailHelp"
+                      placeholder="Enter email address"
                       bind:value={email}
                       on:input={handleEmailChange}
                       required
@@ -363,6 +365,7 @@ function logout(){
                     <input
                       type=""
                       class="form-control"
+                      placeholder="Enter your whatsapp number "
                       id="exampleInputPassword1"
                       bind:value={mobileNumber}
                       on:input={handleMobileChange}
@@ -375,6 +378,7 @@ function logout(){
                   <button type="submit" class="btn btn-primary btn-submit"
                     >Submit</button
                   >
+                  <p class="p-label">By signing up, I accept the Masai <a href="">Terms of Service </a> and acknowledge the <a href="">Privacy Policy.</a></p>
                 </form>
               {:else if isSignin}
                 <!-- Signin Form -->
@@ -386,6 +390,7 @@ function logout(){
                     >
                     <input
                       type=""
+                      placeholder="Enter phone number or email address "
                       class="form-control"
                       id="exampleInputPassword1"
                       bind:value={emailOrMobile}
@@ -474,8 +479,16 @@ function logout(){
   }
   .nav-container {
 
-    width: 1280px;
+    width: 1320px;
     margin: auto;
+  }
+  .p-label{
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 16px;
+    text-align: center;
+    font-family: Open Sans;
+    margin-top: 10px;
   }
   .nav-container > nav {
     display: flex;
@@ -487,6 +500,9 @@ function logout(){
   }
   .applynow-btn {
     background-color: #ed0331;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1.25px;
     color: white;
     padding: 8px 16px;
     border: none;
@@ -495,20 +511,26 @@ function logout(){
   }
 
   .head-p {
-    font-size: 17px;
-    font-weight: bold;
+    font-size: 16px;
+    font-weight: 600;
     margin-top: 15px;
+    font-family: Open Sans, sans-serif;
   }
   .nav-item {
     display: flex;
     margin: 10px;
     font-size: 16px;
+    color: rgb(3, 8, 26);
+    font-weight: 600;
+    letter-spacing: 1.25px;
 
     font-weight: 600 !important;
-    font-family: "Open Sans", ui-sans-serif, system-ui, -apple-system,
-      BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
-      "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-      "Segoe UI Symbol", "Noto Color Emoji";
+    font-family: Open Sans, sans-serif;
+  }
+  .nav-link{
+    color: rgb(3, 8, 26);
+    font-weight: 600;
+    letter-spacing: 1.25px;
   }
   /* .navbar-collapse{
         display: flex;
@@ -585,7 +607,7 @@ function logout(){
     height: 50px;
     border-radius: 8px;
     margin-left: 15px;
-    margin-right: 30px;
+    /* margin-right: 30px; */
   }
   .refer-btn {
     border: none;
@@ -670,7 +692,7 @@ function logout(){
       margin: 0;
     }
     .nav-container{
-      border: 1px solid black;
+      /* border: 1px solid black; */
       max-width: 480px ;
       padding: 0%;
     }
@@ -681,7 +703,7 @@ function logout(){
     margin-right: 20px;
   }
   nav{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     padding: 0px 0px ;
   }
 
