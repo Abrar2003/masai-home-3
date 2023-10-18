@@ -245,7 +245,7 @@ function logout(){
           <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">SIGN UP</button> -->
           {#if !signedUser}
             <button
-              class="btn btn-primary signup-btn"
+              class="signup-btn"
               type="button"
               data-bs-toggle="offcanvas"
               data-bs-target="#offcanvasRight"

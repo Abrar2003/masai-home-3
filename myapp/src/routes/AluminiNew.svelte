@@ -362,6 +362,9 @@
 .almuni-main-div-ms-child {
       gap: 0rem;
     }
-    
+    .almuniMain-div-ms-left{
+      margin-top: -150px;
+    }
   }
+  
 </style>

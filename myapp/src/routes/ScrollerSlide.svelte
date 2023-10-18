@@ -150,16 +150,23 @@
             flex-direction: row;
         }
         #scroll-container{
+            /* border: 1px solid blue; */
+            /* margin-bottom: 600px; */
+            height: auto;
             width: 100%;
             overflow: visible;
+            text-align: center;
         }
 
         .heading {
-            height: 240px;
-            width: 100%;
+            /* border: 1px solid red; */
+            height: 270px;
+            /* width: 10%; */
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             border-radius: 8px;
             margin-bottom: 30px;
+            text-align: center !important;
+            text-decoration: none;
         }
 
         .image-box {
@@ -192,7 +199,7 @@
         .btn-div{
         display: flex;
         justify-content: center;
-        margin-top: 1030px;
+        /* margin-top: 1030px; */
     }
     }
 </style>
@@ -205,7 +212,7 @@
 <div class="container">
     <div id="scroll-container">
         
-            <div class="heading">
+            <div class="heading" style="text-align: center;">
                 <img class="scroll-icon" src="/"/>
                 <h3 class="scroll-p"><span style="color:rgb(237, 3, 49)">100% </span>Live Distance Learning</h3>
                 <p>India’s Only Live Tech-Learning Course With Tier 1 Instructors. Get Real-Time Feedback, Interactive Sessions & A Personalised Learning Experience.</p>

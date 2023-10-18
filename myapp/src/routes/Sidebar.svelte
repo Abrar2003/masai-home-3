@@ -148,6 +148,10 @@
   margin-left: 60px; /* Adjust the left margin as needed */
 }
 
+::-webkit-scrollbar{
+  visibility: hidden;
+}
+
   .button-list-item {
     margin-bottom: 10px;
   }
